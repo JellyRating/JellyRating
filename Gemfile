@@ -37,6 +37,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Haml for templates
 gem 'haml'
 
+# Use bcrypt for password
+gem 'bcrypt', '3.1.7'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'debugger'
