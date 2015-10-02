@@ -1,0 +1,20 @@
+%h1 Sign Up
+
+.row
+	.col-md-6
+		= form_tag users_path do
+
+			= label :user, :name, 'Name'
+			= text_field :user, 'name'
+
+			= label :user, :email, 'Email'
+			= text_field :user, 'email'
+
+			= label :user, :password, 'Password'
+			= password_field :user, 'password'
+
+			= label :user, :password_confirmation, 'Confirmation'
+			= password_field :user, 'password_confirmation'
+
+
+			= submit_tag 'Create my account'

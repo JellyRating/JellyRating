@@ -1,0 +1,29 @@
+!!! 5
+%html
+  %head
+    %title JellyRating!
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    %header
+      .container
+        %h1 Jelly Rating !
+        %nav
+          %ul.nav
+            %li= link_to 'Sign up', new_user_path
+    .container
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.has_error
+          %ul
+            - flash[:warning].each do |msg|
+              %li= msg
+          
+      = yield
+    %footer.footer
+      %small
+        JellyRating
+
