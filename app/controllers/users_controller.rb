@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save 		
+      log_in @user
   		flash[:notice] = "#{@user.name} welcome to JellyRating"
-  		redirect_to user_path(@user)
+  		redirect_to user_path @user
   	else
   		flash[:warning] = @user.errors.full_messages
   		render 'new'
