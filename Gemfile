@@ -43,6 +43,17 @@ gem 'bcrypt', '3.1.7'
 # Use bootstrap-sass for css
 gem 'bootstrap-sass', '3.2.0.0'
 
+# Test framework
+gem 'rspec-rails', '~> 3.3.2'
+
+# Mock framework
+gem 'mocha', '~> 1.1.0'
+
+# Fixtures made easy
+gem 'factory_girl_rails', '~> 4.5.0'
+
+gem 'factory_girl_rspec', '~> 2.1.0'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'debugger'
@@ -52,5 +63,23 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+# Acceptance tests
+group :cucumber do
+  gem 'cucumber', '~> 1.3.18'
+  gem 'cucumber-rails'
+  # Version fixed greater than 1.4.1. See:
+  # https://github.com/DatabaseCleaner/database_cleaner/issues/317
+  gem 'database_cleaner', '>= 1.4.1'
+  gem 'poltergeist', '~> 1.6.0'
+end
+
+group :test do
+  # Easier test writing
+  gem "shoulda-matchers", "~> 2.8.0"
+
+  # Test coverage
+  gem 'simplecov', require: false
 end
 

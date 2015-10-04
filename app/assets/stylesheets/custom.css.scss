@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body { padding-top: 70px; }
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -13,13 +15,18 @@
   background-color: #f2dede;
   border-color: #a94442;
   margin: 1em 0;
-  padding: 4px;
+  padding: 10px;
+}
+
+ul.warning {
+  margin: 0px !important;
 }
 
 #notice {
+  border-radius: 25px;
   background: lightblue;
   margin: 1em 0;
-  padding: 4px;
+  padding: 10px;
 }
 
 /* footer */
@@ -62,5 +69,19 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
