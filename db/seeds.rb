@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+more_medias =
+[
+    {:title => "3", :release_date => "25-nov-1992"},
+    {:title => "2", :release_date => "25-nov-1993"},
+    {:title => "1", :release_date => "25-nov-1994"},
+]
+
+more_medias.each do |media|
+    Media.create!(media)
+end
