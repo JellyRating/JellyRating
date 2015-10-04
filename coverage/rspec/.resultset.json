@@ -1,0 +1,32 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/mateus/JellyRating/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/mateus/JellyRating/app/helpers/sessions_helper.rb": [
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1443931302
+  }
+}

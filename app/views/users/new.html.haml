@@ -1,20 +1,20 @@
 %h1 Sign Up
 
 .row
-	.col-md-6
-		= form_tag users_path do
+  .col-md-6
+    = form_tag users_path do
 
-			= label :user, :name, 'Name'
-			= text_field :user, 'name', :class => 'form-control'
+      = label :user, :name, 'Name'
+      = text_field :user, 'name', :class => 'form-control'
 
-			= label :user, :email, 'Email'
-			= text_field :user, 'email', :class => 'form-control'
+      = label :user, :email, 'Email'
+      = text_field :user, 'email', :class => 'form-control'
 
-			= label :user, :password, 'Password'
-			= password_field :user, 'password', :class => 'form-control'
+      = label :user, :password, 'Password'
+      = password_field :user, 'password', :class => 'form-control'
 
-			= label :user, :password_confirmation, 'Confirmation'
-			= password_field :user, 'password_confirmation', :class => 'form-control'
+      = label :user, :password_confirmation, 'Confirmation'
+      = password_field :user, 'password_confirmation', :class => 'form-control'
 
 
-			= submit_tag 'Create my account', :class => 'btn btn-primary'
+      = submit_tag 'Create my account', :class => 'btn btn-primary'
