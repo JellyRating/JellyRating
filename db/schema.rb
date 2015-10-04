@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001190908) do
+ActiveRecord::Schema.define(version: 20151004011752) do
+
+  create_table "medias", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "release_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

@@ -1,0 +1,11 @@
+%h2 Create New Media
+
+= form_tag medias_path, :method => :post do
+
+  = label :media, :title, 'Title'
+  = text_field :media, :title
+ 
+  = label :media, :release_date, 'Released On'
+  = date_select :media, :release_date
+
+  = submit_tag 'Save Changes'

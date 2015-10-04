@@ -1,3 +1,4 @@
 JellyRating::Application.routes.draw do
-  resources :users
+  resources :users, :medias
+  root :to => redirect("/medias")
 end
