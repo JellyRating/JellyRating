@@ -18,6 +18,10 @@ class MediaController < ApplicationController
         end
     end
 
+    def show
+        @media = Media.all
+    end
+
     private
         def media_params
             params.require(:media).permit(:title, :release_date);

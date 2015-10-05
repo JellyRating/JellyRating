@@ -1,0 +1,12 @@
+%h1 List of all Media
+
+%table#media
+	%thead
+		%tr
+			%th Media Title
+			%th Release Date
+	%tbody
+		-	@media.each do |m|
+			%tr
+				%td= m.title
+				%td= m.release_date
