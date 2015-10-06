@@ -1,4 +1,5 @@
 class MediaController < ApplicationController
+    skip_before_filter :set_current_user, only: [:index, :show]
     def index
 
     end
