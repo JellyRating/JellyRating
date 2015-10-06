@@ -4,5 +4,6 @@ FactoryGirl.define do
     email "naruto@shippuden.com"
     password ""
     password_confirmation ""
+    admin true
   end
 end

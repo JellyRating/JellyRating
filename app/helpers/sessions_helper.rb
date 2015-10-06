@@ -20,8 +20,12 @@ module SessionsHelper
         @current_user = user
       end
     end
-
   end
+
+  def current_user?(user)
+    user == current_user
+  end
+
 
   def logged_in?
     !current_user.nil?
