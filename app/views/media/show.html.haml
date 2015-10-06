@@ -1,12 +1,11 @@
-%h1 List of all Media
+%h2= @media.title
 
-%table#media
-	%thead
-		%tr
-			%th Media Title
-			%th Release Date
-	%tbody
-		-	@media.each do |m|
-			%tr
-				%td= m.title
-				%td= m.release_date
+%ul
+  %li= "Lançamento: #{@media.release_date}"
+
+= button_to("Gostei", "")
+= button_to("Não Gostei", "")
+
+%br
+%br
+= link_to("Voltar", "/media/list_all")
