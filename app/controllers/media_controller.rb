@@ -20,8 +20,13 @@ class MediaController < ApplicationController
     end
 
     def show
-        @media = Media.all
+        id = params[:id]
+        @media = Media.find(id)
     end
+
+    def list_all
+        @media = Media.all
+    end    
 
     private
         def media_params
