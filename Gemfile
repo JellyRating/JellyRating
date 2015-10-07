@@ -81,5 +81,9 @@ group :test do
 
   # Test coverage
   gem 'simplecov', require: false
+
+  gem 'autotest-rails'
+
+
 end
 
