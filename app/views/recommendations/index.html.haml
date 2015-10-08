@@ -1,6 +1,6 @@
 %p#notice= notice
 %h1 Listing Recommendations
-%table
+%table.table
   %thead
     %tr
       %th{:colspan => "3"}
@@ -10,7 +10,7 @@
         %td= recommendation.media1.title
         %td= recommendation.media2.title
         %td= link_to 'Show', recommendation
-        %td= link_to 'Edit', edit_recommendation_path(recommendation)
-        %td= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
+        - if current_user and (current_user.admin? or current_user == recommendation.created_by)
+          %td= link_to 'Delete', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Recommendation', new_recommendation_path

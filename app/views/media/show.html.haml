@@ -7,11 +7,13 @@
 = button_to("Não Gostei", "")
 
 
-%ul
-  - @media.recommendations1.each do |recommendation|
-    %li= recommendation.media2.title
-  - @media.recommendations2.each do |recommendation|
-    %li= recommendation.media1.title
+- if !@media.recommendations1.empty? or !@media.recommendations2.empty?
+  %h3 Users who liked this also recommend:
+  .list-group
+    - @media.recommendations1.each do |recommendation|
+      = link_to recommendation.media2.title, recommendation_path(recommendation), :class => 'list-group-item'
+    - @media.recommendations2.each do |recommendation|
+      = link_to recommendation.media1.title, recommendation_path(recommendation), :class => 'list-group-item'
 
 %br
 %br

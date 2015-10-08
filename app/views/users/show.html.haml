@@ -13,8 +13,10 @@
 - if current_user.admin?
   = link_to 'Delete', user_path(@user), :method => :delete, data: {confirm: "You sure?"}
 
-%ul
-  - @user.recommendations.each do |recommendation|
-    %li= recommendation.media1.title
+- if !@user.recommendations.empty?
+  %h3 Recommendations:
+  .list-group
+    - @user.recommendations.each do |recommendation|
+      = link_to recommendation.media1.title + " - " + recommendation.media2.title, recommendation_path(recommendation), :class => 'list-group-item'
 
 
