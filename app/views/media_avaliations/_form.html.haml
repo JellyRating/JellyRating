@@ -1,0 +1,26 @@
+= form_for(@media_avaliation) do |f|
+  - if @media_avaliation.errors.any?
+    %div{id => "error_explanation"}
+      %h2= pluralize(@media_avaliation.errors.count, "error") 
+      prohibited this media_avaliation from being saved
+      %ul
+      - @media_avaliation.errors.full_messages.each do |message|
+        %li= message
+
+  %div{:class => "field"}
+    = f.label :media
+    %br
+    = f.collection_select :media_id, Media.order(:title),:id,:title, include_blank: true
+  
+  %div{:class => "field"}
+    = f.label :user
+    %br
+    = f.collection_select :user_id, User.order(:name),:id,:name, include_blank: true
+
+  %div{:class => "field"}
+    = f.label :rating
+    %br
+    = f.check_box :rating
+
+  %div{:class => "actions"}
+    = f.submit

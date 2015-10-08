@@ -31,7 +31,7 @@ class MediaAvaliationsController < ApplicationController
 
   # POST /media_avaliations
   # POST /media_avaliations.json
-  def create
+  def create    
     @media_avaliation = MediaAvaliation.new(media_avaliation_params)
 
     respond_to do |format|
