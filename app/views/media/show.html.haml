@@ -6,6 +6,13 @@
 = button_to("Gostei", "")
 = button_to("Não Gostei", "")
 
+
+%ul
+  - @media.recommendations1.each do |recommendation|
+    %li= recommendation.media2.title
+  - @media.recommendations2.each do |recommendation|
+    %li= recommendation.media1.title
+
 %br
 %br
 = link_to("Voltar", "/media/list_all")

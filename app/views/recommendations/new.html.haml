@@ -1,0 +1,16 @@
+%h1 New Recommendation
+
+.row
+  .col-md-6
+    = form_tag recommendations_path do
+
+      = label :recommendation, :media1, 'Media 1'
+      = select_tag 'media1', options_from_collection_for_select(@media, "id", "title"), prompt: "Select something"
+
+      = label :recommendation, :media2, 'Media 2'
+      = select_tag 'media2', options_from_collection_for_select(@media, "id", "title"), prompt: "Select something"
+
+      = submit_tag 'Create Recommendation', :class => 'btn btn-primary'
+
+
+= link_to 'Back', recommendations_path

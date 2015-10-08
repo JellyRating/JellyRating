@@ -1,6 +1,8 @@
 JellyRating::Application.routes.draw do
+  resources :recommendations
   resources :media_avaliations
   resources :users
+  resources :recommendations
   resources :media do
     collection do
       get :list_all
