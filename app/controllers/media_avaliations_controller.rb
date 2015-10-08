@@ -1,5 +1,5 @@
 class MediaAvaliationsController < ApplicationController
-  before_filter :has_user_and_media, :only => [:new :create]
+  before_filter :has_user_and_media, :only => [:new, :create]
   before_action :set_media_avaliation, only: [:show, :edit, :update, :destroy]
 
 
@@ -8,6 +8,7 @@ class MediaAvaliationsController < ApplicationController
       flash[:warning] = "You must be logged to rate a media!"
       redirect_to '/login'
     end
+  end
   # GET /media_avaliations
   # GET /media_avaliations.json
   def index
