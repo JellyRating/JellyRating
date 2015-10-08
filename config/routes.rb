@@ -1,9 +1,11 @@
 JellyRating::Application.routes.draw do
+  resources :media_avaliations
   resources :users
   resources :media do
     collection do
       get :list_all
     end
+    resources :media_avaliations
   end
   root :to => redirect("/media")
 	get 'signup' => 'users#new'

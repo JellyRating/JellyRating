@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Media:</strong>
+  <%= @media_avaliation.media %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @media_avaliation.user %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @media_avaliation.rating %>
+</p>
+
+<%= link_to 'Edit', edit_media_avaliation_path(@media_avaliation) %> |
+<%= link_to 'Back', media_avaliations_path %>

@@ -4,4 +4,5 @@ class Media < ActiveRecord::Base
     validates :release_date, presence: true;
 
     has_many :media_avaliations
+    has_many :users, :through => :media_avaliations
 end

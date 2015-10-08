@@ -1,0 +1,29 @@
+<%= form_for(@media_avaliation) do |f| %>
+  <% if @media_avaliation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@media_avaliation.errors.count, "error") %> prohibited this media_avaliation from being saved:</h2>
+
+      <ul>
+      <% @media_avaliation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :media %><br>
+    <%= f.text_field :media %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.check_box :rating %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
