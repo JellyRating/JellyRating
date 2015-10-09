@@ -3,6 +3,7 @@ class RecommendationsController < ApplicationController
   skip_before_filter :set_current_user, only: [:index, :show]
   before_filter :media_uniqueness, only: [:create]
   before_filter :has_media, only: [:create]
+  before_filter :is_admin_or_owner, only: [:destroy]
 
   # GET /recommendations
   # GET /recommendations.json
@@ -21,10 +22,6 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new
   end
 
-  # GET /recommendations/1/edit
-  def edit
-  end
-
   # POST /recommendations
   # POST /recommendations.json
   def create
@@ -39,22 +36,6 @@ class RecommendationsController < ApplicationController
     
   end
 
-  # PATCH/PUT /recommendations/1
-  # PATCH/PUT /recommendations/1.json
-  def update
-    respond_to do |format|
-      if @recommendation.update(recommendation_params)
-        format.html { redirect_to @recommendation, notice: 'Recommendation was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recommendation }
-      else
-        format.html { render :edit }
-        format.json { render json: @recommendation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /recommendations/1
-  # DELETE /recommendations/1.json
   def destroy
     @recommendation.destroy
     respond_to do |format|
@@ -86,5 +67,9 @@ class RecommendationsController < ApplicationController
     def has_media
       flash[:warning] = ["Select a media"]
       redirect_to new_recommendation_path if params[:media1] == '' or params[:media2] == ''
+    end
+
+    def is_admin_or_owner
+      redirect_to recommendation_path @recommendation unless (current_user and (current_user.admin? or current_user?(@recommendation.created_by)))
     end
 end
