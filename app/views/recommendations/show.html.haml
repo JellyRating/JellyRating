@@ -16,7 +16,8 @@
   %li= "#{pluralize(@like_count, 'person')} liked"
   %li= "#{pluralize(@dislike_count, 'person')} disliked"
 
-= button_to("Like", recommendation_avaliations_path(@recommendation, :rating => true),  method: :post)
-= button_to("Dislike", recommendation_avaliations_path(@recommendation, :rating => false),  method: :post)
+- if(logged_in?)
+  = button_to("Like", recommendation_avaliations_path(@recommendation, :rating => true),  method: :post)
+  = button_to("Dislike", recommendation_avaliations_path(@recommendation, :rating => false),  method: :post)
 
 = link_to 'Back', recommendations_path
