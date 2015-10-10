@@ -1,17 +1,23 @@
 class AvaliationsController < ApplicationController
-  before_filter :has_user_and_media, :only => [:new, :create]
+  before_filter :has_user, :only => [:new, :create]
+  before_filter :has_rateable, :only => [:new, :create]
   before_filter :has_rating, :only => [:create]
   before_action :set_avaliation, only: [:show, :edit, :update, :destroy]
 
 
-  def has_user_and_media
+  def has_user
     unless @current_user
       flash[:warning] = 'You must be logged to rate a media!'
       redirect_to '/login'
     end
-    unless @media = Media.find_by_id(params[:medium_id])
-      flash[:warning] = ["medium_id nao ta chegando"]
-      redirect_to '/media/list_all'
+  end
+
+  def has_rateable
+    @rateable = Media.find_by_id(params[:medium_id])
+    @rateable ||= Recommendation.find_by_id(params[:recommendation_id])
+    unless @rateable
+      flash[:warning] = ["rateable_id nao ta chegando"]
+      redirect_to ''
     end
   end
 
@@ -19,7 +25,7 @@ class AvaliationsController < ApplicationController
     @rating = params[:rating]
     unless @rating != nil
       flash[:warning] = ["rating nao ta chegando"]
-      redirect_to '/media/list_all'
+      redirect_to ''
     end
   end
   # GET /avaliations
@@ -35,7 +41,7 @@ class AvaliationsController < ApplicationController
 
   # GET /avaliations/new
   def new
-    @avaliation = @media.avaliation.build
+    @avaliation = @rateable.avaliation.build
   end
 
   # GET /avaliations/1/edit
@@ -45,13 +51,14 @@ class AvaliationsController < ApplicationController
   # POST /avaliations
   # POST /avaliations.json
   def create   
-    avaliation = Avaliation.where(user: @current_user, rateable: @media)
+    avaliation = Avaliation.where(user: @current_user, rateable: @rateable)
     if avaliation.length == 0
-      @current_user.avaliations << @media.avaliations.build({:user =>@current_user, :rating => params[:rating]})
+      @current_user.avaliations << @rateable.avaliations.build({:user =>@current_user, :rating => params[:rating]})
     else
       avaliation[0].update(rating:params[:rating])
     end
-    redirect_to medium_path(@media)
+    redirect_to recommendation_path(@rateable) if @rateable.is_a? Recommendation
+    redirect_to medium_path(@rateable) if @rateable.is_a? Media
   end
 
   # PATCH/PUT /avaliations/1
@@ -86,6 +93,6 @@ class AvaliationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def avaliation_params
-      params.require(:avaliation).permit(:media, :user, :rating)
+      params.require(:avaliation).permit(:rateable, :user, :rating)
     end
 end
