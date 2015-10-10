@@ -2,6 +2,8 @@
 
 %ul
   %li= "Lançamento: #{@media.release_date}"
+  %li= "#{pluralize(@like_count, 'person')} liked"
+  %li= "#{pluralize(@dislike_count, 'person')} disliked"
 
 = button_to("Like", medium_avaliations_path(@media, :rating => true),  method: :post)
 = button_to("Dislike", medium_avaliations_path(@media, :rating => false),  method: :post)

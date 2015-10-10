@@ -22,6 +22,8 @@ class MediaController < ApplicationController
     def show
         id = params[:id]
         @media = Media.find(id)
+        @like_count = @media.avaliations.where("avaliations.rating = ?", true).size
+        @dislike_count = @media.avaliations.where("avaliations.rating = ?", false).size
     end
 
     def list_all
