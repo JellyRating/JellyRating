@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :media_avaliation do
+  factory :avaliation do
     media ""
 user ""
 rating false

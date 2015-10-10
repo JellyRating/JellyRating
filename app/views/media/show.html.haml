@@ -3,8 +3,9 @@
 %ul
   %li= "Lançamento: #{@media.release_date}"
 
-= button_to("Gostei", "")
-= button_to("Não Gostei", "")
+= button_to("Like", avaliations_path(@media),  method: :post)
+= button_to("Dislike", "")
+ 
 
 
 - if !@media.recommendations1.empty? or !@media.recommendations2.empty?

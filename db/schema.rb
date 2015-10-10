@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008205805) do
+ActiveRecord::Schema.define(version: 20151010015347) do
+
+  create_table "avaliations", force: :cascade do |t|
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "user_id"
+    t.boolean  "rating"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "avaliations", ["rateable_type", "rateable_id"], name: "index_avaliations_on_rateable_type_and_rateable_id"
 
   create_table "media", force: :cascade do |t|
     t.string   "title"

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  has_many :media_avaliations
+  has_many :avaliations
   has_many :recommendations, class_name: "Recommendation", foreign_key: "created_by_id"
 
   # Returns the hash digest of the given string.
