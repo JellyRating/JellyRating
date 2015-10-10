@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_current_user
   protected
     def set_current_user
-      redirect_to login_path and return unless current_user
+    	session[:return_to] = request.fullpath
+    	redirect_to login_path and return unless current_user
     end
 end
