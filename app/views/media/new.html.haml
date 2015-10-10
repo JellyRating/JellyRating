@@ -6,6 +6,6 @@
   = text_field :media, :title, :class => 'form-control'
  
   = label :media, :release_date, 'Released On'
-  = date_select :media, :release_date
+  = date_select :media, :release_date, :start_year => 1930, :end_year => 2015
 
   = submit_tag 'Save Changes', :class => 'btn btn-primary'
