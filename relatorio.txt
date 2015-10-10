@@ -1,0 +1,11 @@
+Relatório de Projeto: JellyRating
+
+Dificuldades:
+
+- Devido à escolha de nomes para algumas de nossas Models, como a model Media, tivemos problemas com a plularização automática do Ruby para certos métodos. Por exemplo, o método para retornar o caminho da "show" de uma Media seria medium_path, e não media_path, como pensamos.
+
+- As Models de avaliação media_avaliation e recommendation utilizam mais de uma chave estrangeira. Isso causou algumas complicações durante o desenvolvimento por não termos total experiência com relacionamento de tabelas.
+
+- Durante os testes, em certas ocasiões os navegadores não acessavam as versões mais atuais das nossas páginas por estarem guardadas em arquivos temporários deles. Isso fez com que pensassemos que nossas soluções não estavam dando resultado, quando na verdade era apenas o navegador usando uma versão antiga.
+
+- Alguns pushes no GitHub envolvendo arquivos do banco de dados não foram completamente feitos, diversas vezes dando push em todos os arquivos do commit, exceto os de tabelas do projeto.

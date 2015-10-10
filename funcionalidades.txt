@@ -1,0 +1,34 @@
+Relatório do Projeto: JellyRating
+
+Funcionalidades:
+
+- Controle de acesso
+-- Algumas páginas, descritas abaixo, estão disponíveis ou mudam de comportamento após o login
+-- Menu também muda após o login
+
+- Section
+-- Cadastro e Login
+
+-Home
+-- Mostra a tela de login se não estiver logado
+-- Mostra a tela de perfil se estiver logado
+
+- Media (filme, série, etc)
+-- Criação de nova Mídia [disponível apenas após login]
+-- Visualização de lista com todas as Mídias no banco de dados
+-- Visualização de Mídias individualmente
+--- Informações como ano de lançamento e contagem de avaliações
+--- Avaliação (Gostar/Não Gostar) [disponível apenas após login]
+--- Recomendações (se existirem) que incluem essa mídia
+
+- Recomendação
+-- Recomendar "Media Y" para quem gostou da "Media X" [disponível apenas após login]
+-- Visualização de lista com todas as recomendações
+-- Visualização de uma recomendação individualmente
+--- Contém link para cada uma das mídias envolvidas
+--- Contém link para perfil de quem criou essa recomendação
+--- Usuário que criou recomendação também pode deletá-la
+
+- Perfil [disponível apenas após login]
+-- Visualizar perfil de outros usuários
+-- Vizualizar e editar informações do proprio perfil
