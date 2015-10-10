@@ -12,8 +12,10 @@
         %nav
           %ul.nav.navbar-nav.navbar-right
             %li= link_to 'Home', root_path
+            %li= link_to 'Media list', '/media/list_all'
             %li= link_to 'Recommendations', recommendations_path
             - if logged_in?
+              %li= link_to 'Add Media', new_medium_path
               %li= link_to 'Add Recommendation', new_recommendation_path
               %li.dropdown
                 %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown"}

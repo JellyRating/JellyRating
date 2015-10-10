@@ -1,6 +1,6 @@
 %h1 List of all Media
 
-%table#media
+%table.table
 	%thead
 		%tr
 			%th Media Title
@@ -10,7 +10,3 @@
 			%tr
 				%td= link_to(m.title, medium_path(m))
 				%td= m.release_date
-
-%br
-%br
-= link_to("Voltar", :root)
