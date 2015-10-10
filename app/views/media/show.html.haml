@@ -3,8 +3,8 @@
 %ul
   %li= "Lançamento: #{@media.release_date}"
 
-= button_to("Like", avaliations_path(@media),  method: :post)
-= button_to("Dislike", "")
+= button_to("Like", medium_avaliations_path(@media, :rating => true),  method: :post)
+= button_to("Dislike", medium_avaliations_path(@media, :rating => false),  method: :post)
  
 
 

@@ -1,5 +1,6 @@
 class AvaliationsController < ApplicationController
   before_filter :has_user_and_media, :only => [:new, :create]
+  before_filter :has_rating, :only => [:create]
   before_action :set_avaliation, only: [:show, :edit, :update, :destroy]
 
 
@@ -9,12 +10,17 @@ class AvaliationsController < ApplicationController
       redirect_to '/login'
     end
     unless @media = Media.find_by_id(params[:medium_id])
-      flash[:warning] = ["#{params[:medium_id]} nao ta chegando"]
+      flash[:warning] = ["medium_id nao ta chegando"]
       redirect_to '/media/list_all'
-
     end
+  end
 
-    
+  def has_rating
+    @rating = params[:rating]
+    unless @rating != nil
+      flash[:warning] = ["rating nao ta chegando"]
+      redirect_to '/media/list_all'
+    end
   end
   # GET /avaliations
   # GET /avaliations.json
@@ -38,8 +44,13 @@ class AvaliationsController < ApplicationController
 
   # POST /avaliations
   # POST /avaliations.json
-  def create        
-    @current_user.avaliations << @media.avaliations.build({:user =>@current_user, :rating=> true})
+  def create   
+    avaliation = Avaliation.where(user: @current_user, rateable: @media)
+    if avaliation.length == 0
+      @current_user.avaliations << @media.avaliations.build({:user =>@current_user, :rating => params[:rating]})
+    else
+      avaliation[0].update(rating:params[:rating])
+    end
     redirect_to medium_path(@media)
   end
 
