@@ -11,6 +11,4 @@ RSpec.describe Media, type: :model do
   it { is_expected.to validate_length_of(:title) }
   it { is_expected.to validate_length_of(:release_date) }
 
-  
-  
 end

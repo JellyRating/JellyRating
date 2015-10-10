@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :avaliation do
-    media ""
-user ""
-rating false
+    rateable {FactoryGirl.build(:recommendation)}
+    user {FactoryGirl.build(:user)}
+    rating false
   end
-
 end
