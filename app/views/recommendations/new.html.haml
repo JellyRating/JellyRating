@@ -11,6 +11,3 @@
       = select_tag 'media2', options_from_collection_for_select(@media, "id", "title"), prompt: "Select something"
 
       = submit_tag 'Create Recommendation', :class => 'btn btn-primary'
-
-
-= link_to 'Back', recommendations_path
