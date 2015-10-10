@@ -9,8 +9,8 @@
       %td= link_to @recommendation.media1.title, medium_path(@recommendation.media1)
       %td= link_to @recommendation.media2.title, medium_path(@recommendation.media2)
       %td= link_to @recommendation.created_by.name, user_path(@recommendation.created_by)
-      / - if current_user and (current_user.admin? or current_user == @recommendation.created_by)
-      %td= link_to 'Delete', @recommendation, method: :delete, data: { confirm: 'Are you sure?' }
+      - if current_user and (current_user.admin? or current_user == @recommendation.created_by)
+        %td= link_to 'Delete', @recommendation, method: :delete, data: { confirm: 'Are you sure?' }
 
 %ul
   %li= "#{pluralize(@like_count, 'person')} liked"
@@ -18,5 +18,3 @@
 
 = button_to("Like", recommendation_avaliations_path(@recommendation, :rating => true),  method: :post)
 = button_to("Dislike", recommendation_avaliations_path(@recommendation, :rating => false),  method: :post)
-
-= link_to 'Back', recommendations_path

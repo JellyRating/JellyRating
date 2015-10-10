@@ -3,9 +3,9 @@
 = form_tag media_path, :method => :post do
 
   = label :media, :title, 'Title'
-  = text_field :media, :title
+  = text_field :media, :title, :class => 'form-control'
  
   = label :media, :release_date, 'Released On'
   = date_select :media, :release_date
 
-  = submit_tag 'Save Changes'
+  = submit_tag 'Save Changes', :class => 'btn btn-primary'

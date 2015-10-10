@@ -1,7 +1,7 @@
 %h2= @media.title
 
 %ul
-  %li= "Lançamento: #{@media.release_date}"
+  %li= "Release date: #{@media.release_date}"
   %li= "#{pluralize(@like_count, 'person')} liked"
   %li= "#{pluralize(@dislike_count, 'person')} disliked"
 
@@ -17,7 +17,3 @@
       = link_to recommendation.media2.title, recommendation_path(recommendation), :class => 'list-group-item'
     - @media.recommendations2.each do |recommendation|
       = link_to recommendation.media1.title, recommendation_path(recommendation), :class => 'list-group-item'
-
-%br
-%br
-= link_to("Voltar", "/media/list_all")
