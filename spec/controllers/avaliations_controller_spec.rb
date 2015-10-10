@@ -18,10 +18,10 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe MediaAvaliationsController, type: :controller do
+RSpec.describe AvaliationsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # MediaAvaliation. As you add validations to MediaAvaliation, be sure to
+  # Avaliation. As you add validations to Avaliation, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -33,12 +33,12 @@ RSpec.describe MediaAvaliationsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # MediaAvaliationsController. Be sure to keep this updated too.
+  # AvaliationsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "assigns all avaliations as @avaliations" do
-      avaliation = MediaAvaliation.create! valid_attributes
+      avaliation = Avaliation.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:avaliations)).to eq([avaliation])
     end
@@ -46,7 +46,7 @@ RSpec.describe MediaAvaliationsController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested avaliation as @avaliation" do
-      avaliation = MediaAvaliation.create! valid_attributes
+      avaliation = Avaliation.create! valid_attributes
       get :show, {:id => avaliation.to_param}, valid_session
       expect(assigns(:avaliation)).to eq(avaliation)
     end
@@ -55,13 +55,13 @@ RSpec.describe MediaAvaliationsController, type: :controller do
   describe "GET #new" do
     it "assigns a new avaliation as @avaliation" do
       get :new, {}, valid_session
-      expect(assigns(:avaliation)).to be_a_new(MediaAvaliation)
+      expect(assigns(:avaliation)).to be_a_new(Avaliation)
     end
   end
 
   describe "GET #edit" do
     it "assigns the requested avaliation as @avaliation" do
-      avaliation = MediaAvaliation.create! valid_attributes
+      avaliation = Avaliation.create! valid_attributes
       get :edit, {:id => avaliation.to_param}, valid_session
       expect(assigns(:avaliation)).to eq(avaliation)
     end
@@ -69,28 +69,28 @@ RSpec.describe MediaAvaliationsController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new MediaAvaliation" do
+      it "creates a new Avaliation" do
         expect {
           post :create, {:avaliation => valid_attributes}, valid_session
-        }.to change(MediaAvaliation, :count).by(1)
+        }.to change(Avaliation, :count).by(1)
       end
 
       it "assigns a newly created avaliation as @avaliation" do
         post :create, {:avaliation => valid_attributes}, valid_session
-        expect(assigns(:avaliation)).to be_a(MediaAvaliation)
+        expect(assigns(:avaliation)).to be_a(Avaliation)
         expect(assigns(:avaliation)).to be_persisted
       end
 
       it "redirects to the created avaliation" do
         post :create, {:avaliation => valid_attributes}, valid_session
-        expect(response).to redirect_to(MediaAvaliation.last)
+        expect(response).to redirect_to(Avaliation.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved avaliation as @avaliation" do
         post :create, {:avaliation => invalid_attributes}, valid_session
-        expect(assigns(:avaliation)).to be_a_new(MediaAvaliation)
+        expect(assigns(:avaliation)).to be_a_new(Avaliation)
       end
 
       it "re-renders the 'new' template" do
@@ -107,20 +107,20 @@ RSpec.describe MediaAvaliationsController, type: :controller do
       }
 
       it "updates the requested avaliation" do
-        avaliation = MediaAvaliation.create! valid_attributes
+        avaliation = Avaliation.create! valid_attributes
         put :update, {:id => avaliation.to_param, :avaliation => new_attributes}, valid_session
         avaliation.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested avaliation as @avaliation" do
-        avaliation = MediaAvaliation.create! valid_attributes
+        avaliation = Avaliation.create! valid_attributes
         put :update, {:id => avaliation.to_param, :avaliation => valid_attributes}, valid_session
         expect(assigns(:avaliation)).to eq(avaliation)
       end
 
       it "redirects to the avaliation" do
-        avaliation = MediaAvaliation.create! valid_attributes
+        avaliation = Avaliation.create! valid_attributes
         put :update, {:id => avaliation.to_param, :avaliation => valid_attributes}, valid_session
         expect(response).to redirect_to(avaliation)
       end
@@ -128,13 +128,13 @@ RSpec.describe MediaAvaliationsController, type: :controller do
 
     context "with invalid params" do
       it "assigns the avaliation as @avaliation" do
-        avaliation = MediaAvaliation.create! valid_attributes
+        avaliation = Avaliation.create! valid_attributes
         put :update, {:id => avaliation.to_param, :avaliation => invalid_attributes}, valid_session
         expect(assigns(:avaliation)).to eq(avaliation)
       end
 
       it "re-renders the 'edit' template" do
-        avaliation = MediaAvaliation.create! valid_attributes
+        avaliation = Avaliation.create! valid_attributes
         put :update, {:id => avaliation.to_param, :avaliation => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
@@ -143,14 +143,14 @@ RSpec.describe MediaAvaliationsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested avaliation" do
-      avaliation = MediaAvaliation.create! valid_attributes
+      avaliation = Avaliation.create! valid_attributes
       expect {
         delete :destroy, {:id => avaliation.to_param}, valid_session
-      }.to change(MediaAvaliation, :count).by(-1)
+      }.to change(Avaliation, :count).by(-1)
     end
 
     it "redirects to the avaliations list" do
-      avaliation = MediaAvaliation.create! valid_attributes
+      avaliation = Avaliation.create! valid_attributes
       delete :destroy, {:id => avaliation.to_param}, valid_session
       expect(response).to redirect_to(avaliations_url)
     end

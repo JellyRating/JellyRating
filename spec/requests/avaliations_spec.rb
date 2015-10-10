@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "MediaAvaliations", type: :request do
+RSpec.describe "Avaliations", type: :request do
   describe "GET /avaliations" do
     it "works! (now write some real specs)" do
       get avaliations_path

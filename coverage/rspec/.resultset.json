@@ -1,23 +1,23 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/saasbook/Documents/JellyRating/app/helpers/account_activations_helper.rb": [
+      "/home/saasbook/JellyRating/app/helpers/account_activations_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/helpers/application_helper.rb": [
+      "/home/saasbook/JellyRating/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/helpers/avaliations_helper.rb": [
+      "/home/saasbook/JellyRating/app/helpers/avaliations_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/helpers/recommendations_helper.rb": [
+      "/home/saasbook/JellyRating/app/helpers/recommendations_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/helpers/sessions_helper.rb": [
+      "/home/saasbook/JellyRating/app/helpers/sessions_helper.rb": [
         1,
         null,
         1,
@@ -64,32 +64,51 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/controllers/avaliations_controller.rb": [
+      "/home/saasbook/JellyRating/app/controllers/avaliations_controller.rb": [
         1,
         1,
         1,
-        null,
-        null,
         1,
-        0,
-        0,
-        0,
-        null,
-        null,
+        1,
         null,
         null,
         1,
         0,
-        null,
-        null,
-        null,
-        null,
-        1,
+        0,
+        0,
         null,
         null,
         null,
         1,
         0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         null,
@@ -100,16 +119,13 @@
         null,
         1,
         0,
-        null,
-        0,
-        0,
         0,
         0,
         null,
         0,
+        null,
         0,
-        null,
-        null,
+        0,
         null,
         null,
         null,
@@ -148,7 +164,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/controllers/application_controller.rb": [
+      "/home/saasbook/JellyRating/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -162,7 +178,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/controllers/media_controller.rb": [
+      "/home/saasbook/JellyRating/app/controllers/media_controller.rb": [
         1,
         1,
         1,
@@ -199,7 +215,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/controllers/recommendations_controller.rb": [
+      "/home/saasbook/JellyRating/app/controllers/recommendations_controller.rb": [
         1,
         1,
         1,
@@ -276,13 +292,15 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/models/avaliation.rb": [
+      "/home/saasbook/JellyRating/app/models/avaliation.rb": [
+        1,
+        1,
         1,
         1,
         1,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/models/media.rb": [
+      "/home/saasbook/JellyRating/app/models/media.rb": [
         1,
         1,
         1,
@@ -294,7 +312,8 @@
         1,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/models/recommendation.rb": [
+      "/home/saasbook/JellyRating/app/models/recommendation.rb": [
+        1,
         1,
         1,
         1,
@@ -307,7 +326,7 @@
         null,
         null
       ],
-      "/home/saasbook/Documents/JellyRating/app/models/user.rb": [
+      "/home/saasbook/JellyRating/app/models/user.rb": [
         1,
         null,
         1,
@@ -354,6 +373,6 @@
         null
       ]
     },
-    "timestamp": 1444435580
+    "timestamp": 1444494719
   }
 }
