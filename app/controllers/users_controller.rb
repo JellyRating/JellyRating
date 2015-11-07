@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def search(s_params)
     if(s_params)
-      User.where("name LIKE ?", "#{s_params}%")
+      User.where("name LIKE ?", "%#{s_params}%")
     else
       User.all
     end
