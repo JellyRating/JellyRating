@@ -24,24 +24,16 @@ ActiveRecord::Schema.define(version: 20151010015347) do
 
   add_index "avaliations", ["rateable_type", "rateable_id"], name: "index_avaliations_on_rateable_type_and_rateable_id"
 
-  create_table "media", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "title"
     t.datetime "release_date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  create_table "media_avaliations", force: :cascade do |t|
-    t.integer  "media_id"
-    t.integer  "user_id"
-    t.boolean  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "recommendations", force: :cascade do |t|
-    t.integer  "media1_id"
-    t.integer  "media2_id"
+    t.integer  "item1_id"
+    t.integer  "item2_id"
     t.integer  "created_by_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

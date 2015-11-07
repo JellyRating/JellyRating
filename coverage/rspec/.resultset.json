@@ -1,23 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/saasbook/repos/JellyRating/app/helpers/account_activations_helper.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/repos/JellyRating/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/repos/JellyRating/app/helpers/avaliations_helper.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/repos/JellyRating/app/helpers/recommendations_helper.rb": [
-        1,
-        null
-      ],
-      "/home/saasbook/repos/JellyRating/app/helpers/sessions_helper.rb": [
+      "/home/mateus/JellyRating/app/helpers/sessions_helper.rb": [
         1,
         null,
         1,
@@ -64,7 +48,7 @@
         null,
         null
       ],
-      "/home/saasbook/repos/JellyRating/app/models/avaliation.rb": [
+      "/home/mateus/JellyRating/app/models/avaliation.rb": [
         1,
         1,
         1,
@@ -72,20 +56,7 @@
         1,
         null
       ],
-      "/home/saasbook/repos/JellyRating/app/models/media.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/home/saasbook/repos/JellyRating/app/models/recommendation.rb": [
-        1,
+      "/home/mateus/JellyRating/app/models/item.rb": [
         1,
         1,
         1,
@@ -96,9 +67,26 @@
         1,
         1,
         null,
+        1,
+        0,
+        null,
         null
       ],
-      "/home/saasbook/repos/JellyRating/app/models/user.rb": [
+      "/home/mateus/JellyRating/app/models/recommendation.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/mateus/JellyRating/app/models/user.rb": [
         1,
         null,
         1,
@@ -145,6 +133,6 @@
         null
       ]
     },
-    "timestamp": 1444509082
+    "timestamp": 1446918161
   }
 }

@@ -1,10 +1,10 @@
-Feature: create a new commentary about a media
+Feature: create a new commentary about a item
   As a user,
-  So that others users can see my opinion of the media
-  I want to post a new commentary about a specific media
+  So that others users can see my opinion of the item
+  I want to post a new commentary about a specific item
 
-Background: media have been added to database
-  Given the following media exist:
+Background: item have been added to database
+  Given the following item exist:
   | title                   | release_date |
   | Aladdin                 | 25-Nov-1992  |
   | The Terminator          | 26-Oct-1984  |
@@ -22,9 +22,9 @@ Background: media have been added to database
   | John  | john@johnson.com  | 123456    | 123456                |
 
   And I am logged in as "john@johnson.com", "123456"
-  And I am on the "Aladdin" media page
+  And I am on the "Aladdin" item page
 
-Scenario: create a new commentary about this media
+Scenario: create a new commentary about this item
   When I press "New Commentary"
   And I fill in "Commentary" for "Nice movie"
   And I press "Post"

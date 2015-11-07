@@ -1,8 +1,8 @@
 class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
   skip_before_filter :set_current_user, only: [:index, :show]
-  before_filter :media_uniqueness, only: [:create]
-  before_filter :has_media, only: [:create]
+  before_filter :item_uniqueness, only: [:create]
+  before_filter :has_item, only: [:create]
   before_filter :is_admin_or_owner, only: [:destroy]
 
   # GET /recommendations
@@ -20,14 +20,14 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations/new
   def new
-    @media = Media.all
+    @item = Item.all
     @recommendation = Recommendation.new
   end
 
   # POST /recommendations
   # POST /recommendations.json
   def create
-    @recommendation = Recommendation.new(media1: Media.find(params[:media1]), media2: Media.find(params[:media2]), created_by: current_user)
+    @recommendation = Recommendation.new(item1: Item.find(params[:item1]), item2: Item.find(params[:item2]), created_by: current_user)
     if @recommendation.save
       flash[:notice] = 'New recommendation created'
       redirect_to recommendation_path @recommendation
@@ -54,21 +54,21 @@ class RecommendationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recommendation_params
-      params.require(:recommendation).permit(:media1, :media2)
+      params.require(:recommendation).permit(:item1, :item2)
     end
 
-    def media_uniqueness
-      recommendation = Recommendation.find_by(media2_id: params[:media1], media1_id: params[:media2])
-      recommendation ||= Recommendation.find_by(media1_id: params[:media1], media2_id: params[:media2])
+    def item_uniqueness
+      recommendation = Recommendation.find_by(item2_id: params[:item1], item1_id: params[:item2])
+      recommendation ||= Recommendation.find_by(item1_id: params[:item1], item2_id: params[:item2])
       if (recommendation)
         flash[:warning] = ["Recommendation have already been created"]
         redirect_to recommendation_path recommendation
       end
     end
 
-    def has_media
-      flash[:warning] = ["Select a media"]
-      redirect_to new_recommendation_path if params[:media1] == '' or params[:media2] == ''
+    def has_item
+      flash[:warning] = ["Select a item"]
+      redirect_to new_recommendation_path if params[:item1] == '' or params[:item2] == ''
     end
 
     def is_admin_or_owner

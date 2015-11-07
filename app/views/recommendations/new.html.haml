@@ -4,10 +4,10 @@
   .col-md-6
     = form_tag recommendations_path do
 
-      = label :recommendation, :media1, 'Media 1'
-      = select_tag 'media1', options_from_collection_for_select(@media, "id", "title"), prompt: "Select something"
+      = label :recommendation, :item1, 'Item 1'
+      = select_tag 'item1', options_from_collection_for_select(@item, "id", "title"), prompt: "Select something"
 
-      = label :recommendation, :media2, 'Media 2'
-      = select_tag 'media2', options_from_collection_for_select(@media, "id", "title"), prompt: "Select something"
+      = label :recommendation, :item2, 'Item 2'
+      = select_tag 'item2', options_from_collection_for_select(@item, "id", "title"), prompt: "Select something"
 
       = submit_tag 'Create Recommendation', :class => 'btn btn-primary'

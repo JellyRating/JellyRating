@@ -7,13 +7,13 @@ class AvaliationsController < ApplicationController
 
   def has_user
     unless @current_user
-      flash[:warning] = 'You must be logged to rate a media!'
+      flash[:warning] = 'You must be logged to rate a item!'
       redirect_to '/login'
     end
   end
 
   def has_rateable
-    @rateable = Media.find_by_id(params[:medium_id])
+    @rateable = Item.find_by_id(params[:item_id])
     @rateable ||= Recommendation.find_by_id(params[:recommendation_id])
     unless @rateable
       flash[:warning] = ["rateable_id nao ta chegando"]
@@ -58,7 +58,7 @@ class AvaliationsController < ApplicationController
       avaliation[0].update(rating:params[:rating])
     end
     redirect_to recommendation_path(@rateable) if @rateable.is_a? Recommendation
-    redirect_to medium_path(@rateable) if @rateable.is_a? Media
+    redirect_to item_path(@rateable) if @rateable.is_a? Item
   end
 
   # PATCH/PUT /avaliations/1
@@ -66,7 +66,7 @@ class AvaliationsController < ApplicationController
   def update
     respond_to do |format|
       if @avaliation.update(avaliation_params)
-        format.html { redirect_to @avaliation, notice: 'Media avaliation was successfully updated.' }
+        format.html { redirect_to @avaliation, notice: 'Item avaliation was successfully updated.' }
         format.json { render :show, status: :ok, location: @avaliation }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class AvaliationsController < ApplicationController
   def destroy
     @avaliation.destroy
     respond_to do |format|
-      format.html { redirect_to avaliations_url, notice: 'Media avaliation was successfully destroyed.' }
+      format.html { redirect_to avaliations_url, notice: 'Item avaliation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

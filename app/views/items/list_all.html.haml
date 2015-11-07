@@ -1,0 +1,12 @@
+%h1 List of all Items
+
+%table.table
+  %thead
+    %tr
+      %th Item Title
+      %th Release Date
+  %tbody
+    - @item.each do |i|
+      %tr
+        %td= link_to(i.title, item_path(i))
+        %td= i.release_date

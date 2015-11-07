@@ -7,8 +7,8 @@
   %tbody
     - @recommendations.each do |recommendation|
       %tr
-        %td= recommendation.media1.title
-        %td= recommendation.media2.title
+        %td= recommendation.item1.title
+        %td= recommendation.item2.title
         %td= link_to 'Show', recommendation
         - if current_user and (current_user.admin? or current_user == recommendation.created_by)
           %td= link_to 'Delete', recommendation, method: :delete, data: { confirm: 'Are you sure?' }

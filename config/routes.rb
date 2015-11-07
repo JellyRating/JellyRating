@@ -1,11 +1,12 @@
 JellyRating::Application.routes.draw do
+  resources :commentaries
   resources :recommendations
   resources :avaliations
   resources :users
   resources :recommendations do
     resources :avaliations
   end
-  resources :media do
+  resources :items do
     collection do
       get :list_all
     end
