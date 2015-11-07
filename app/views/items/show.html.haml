@@ -19,7 +19,7 @@
 - if !@item.commentaries.empty?
   %h3 User's commentaries:
   .row
-    - @item.commentaries.each do |commentary|
+    - @item.commentaries.last_commentaries.each do |commentary|
       .panel.panel-default
         .panel-heading
           = link_to commentary.user.name, user_path(commentary.user)
