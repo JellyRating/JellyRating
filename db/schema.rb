@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20151010015347) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "media_avaliations", force: :cascade do |t|
+    t.integer  "media_id"
+    t.integer  "user_id"
+    t.boolean  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recommendations", force: :cascade do |t|
     t.integer  "media1_id"
     t.integer  "media2_id"
