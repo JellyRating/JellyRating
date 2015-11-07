@@ -3,6 +3,7 @@ class Recommendation < ActiveRecord::Base
   belongs_to :item2, class_name: "Item"
   belongs_to :created_by, class_name: "User"
   has_many :avaliations, :as => :rateable
+  has_many :commentaries, :as => :commentable
 
   validate :different_item?
   private
