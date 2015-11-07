@@ -5,12 +5,14 @@ JellyRating::Application.routes.draw do
   resources :users
   resources :recommendations do
     resources :avaliations
+    resources :commentaries
   end
   resources :items do
     collection do
       get :list_all
     end
     resources :avaliations
+    resources :commentaries
   end
   root :to => redirect("/login")
 	get 'signup' => 'users#new'

@@ -1,0 +1,6 @@
+%h2 Create New Commentary
+= form_tag @path, :method => :post do
+  = label :commentary, :comment, 'Comment'
+  = text_area :commentary, :comment, :class => 'form-control'
+
+  = submit_tag 'Post', :class => 'btn btn-primary'

@@ -6,9 +6,7 @@
 
 - if(logged_in?)
   = button_to("Like", item_avaliations_path(@item, :rating => true),  method: :post)
-  = button_to("Dislike", item_avaliations_path(@item, :rating => false),  method: :post)
- 
-
+  = button_to("Dislike", item_avaliations_path(@item, :rating => false),  method: :post) 
 
 - if !@item.recommendations1.empty? or !@item.recommendations2.empty?
   %h3 Users who liked this also recommend:
@@ -17,3 +15,18 @@
       = link_to recommendation.item2.title, recommendation_path(recommendation), :class => 'list-group-item'
     - @item.recommendations2.each do |recommendation|
       = link_to recommendation.item1.title, recommendation_path(recommendation), :class => 'list-group-item'
+= link_to "New Commentary", new_item_commentary_path(@item)
+- if !@item.commentaries.empty?
+  %h3 User's commentaries:
+  .row
+    - @item.commentaries.each do |commentary|
+      .panel.panel-default
+        .panel-heading
+          = link_to commentary.user.name, user_path(commentary.user)
+          %span.text-muted commented #{time_ago_in_words(commentary.created_at)} ago
+        .panel-body
+          - commentary.comment.split("\n").each do |line|
+            = line
+            %br
+            
+

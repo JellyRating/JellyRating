@@ -25,8 +25,8 @@ Background: item have been added to database
   And I am on the "Aladdin" item page
 
 Scenario: create a new commentary about this item
-  When I press "New Commentary"
-  And I fill in "Commentary" for "Nice movie"
+  When I follow "New Commentary"
+  And I fill in "Comment" with "Nice movie"
   And I press "Post"
   Then I should see "John"
   And I should see "Nice movie"
