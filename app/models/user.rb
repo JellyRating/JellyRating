@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   has_many :avaliations
   has_many :recommendations, class_name: "Recommendation", foreign_key: "created_by_id"
+  has_many :commentaries
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -41,4 +42,12 @@ class User < ActiveRecord::Base
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def avaliation_count
+    Avaliation.where(:user_id => self.id).count
+  end
+
+  def commentary_count
+    Commentary.where(:user_id => self.id).count
+  end  
 end

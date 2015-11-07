@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   skip_before_filter :set_current_user, only: [:new, :create]
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
+  def index
+    @users = search(params[:search])
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -41,6 +45,14 @@ class UsersController < ApplicationController
     flash[:notice] = "#{@user.name} deleted"
     redirect_to root_path
   end
+
+  def search(s_params)
+    if(s_params)
+      User.where("name LIKE ?", "#{s_params}%")
+    else
+      User.all
+    end
+  end  
 
   private
     def user_params
