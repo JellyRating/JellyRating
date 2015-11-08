@@ -19,4 +19,8 @@
     - @user.recommendations.each do |recommendation|
       = link_to recommendation.item1.title + " - " + recommendation.item2.title, recommendation_path(recommendation), :class => 'list-group-item'
 
-
+- if !@user.avaliations.empty?
+  %h3 Avaliations:
+  .list-group
+    - @user.avaliations.each do |avaliation|
+      = link_to avaliation.rateable.title + " - " + avaliation.aval_str, item_path(avaliation.rateable), :class => 'list-group-item'

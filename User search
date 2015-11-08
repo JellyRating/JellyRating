@@ -1,0 +1,287 @@
+commit b35847b737addf65e7931400889d43772b7dc5a8
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Sat Nov 7 20:01:54 2015 -0400
+
+    User search function added
+
+commit 6dbb07548bb10cb345adb4554a722838231be1ea
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Sat Nov 7 19:59:08 2015 -0400
+
+    Search user function added
+
+commit 08d9deb7f5631f0f7b659afc0f6a104feec7261a
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Sat Nov 7 19:58:09 2015 -0400
+
+    Search user function added
+
+commit 2cddee9fc4ee87921761ebb7ef0919d54b9c8b85
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Sat Nov 7 17:57:59 2015 -0400
+
+    User search
+
+commit e2437cd5e80fcc6b3f997936326eb18840037c3a
+Author: mateus <mmrocha94@gmail.com>
+Date:   Sat Nov 7 18:35:09 2015 -0200
+
+    Create recommendation commentary
+
+commit 1ff1d8eb43f1537b9f8ae8a8e75f277aed32e794
+Author: mateus <mmrocha94@gmail.com>
+Date:   Sat Nov 7 17:42:31 2015 -0200
+
+    Last commentaries first
+
+commit 4c5f44f9dd2b753549e7b6b230f7b101ffd6179d
+Author: mateus <mmrocha94@gmail.com>
+Date:   Sat Nov 7 17:35:26 2015 -0200
+
+    Create item commentary
+
+commit 5733950a808116e0ed76a3ecb3a6c52d0021e4d2
+Author: mateus <mmrocha94@gmail.com>
+Date:   Sat Nov 7 15:55:21 2015 -0200
+
+    media to item
+
+commit 606260859af9abeb3abc102139335227f40d93f3
+Author: mateus <mmrocha94@gmail.com>
+Date:   Sat Nov 7 13:34:41 2015 -0200
+
+    Movie Commentary Cucumber
+
+commit fab0f67c01d1856db260ac16a52b1f1eda99b477
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 17:49:30 2015 -0300
+
+    listagem de datas comecando em 1930
+
+commit 1aaa8b6c215ece45bd21889b23136c6ee12f3e9d
+Merge: 15e7765 2e19af8
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 17:35:13 2015 -0300
+
+    Merge branch 'master' of https://github.com/JellyRating/JellyRating
+
+commit 15e776590431eff0f82ff095bafb42c82ca45e48
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 17:34:24 2015 -0300
+
+    teste de modelo funcionando, ficou faltando os de controller
+
+commit 2e19af8a01d677d52c37371dcdad794003ed566c
+Author: Luan Torres <luantorres95@hotmail.com>
+Date:   Sat Oct 10 16:59:43 2015 -0300
+
+    Added "Funcionalidades.txt" and "relatorio.txt"
+
+commit deea3cee48a587aadc08f1a27f993198cd281c7c
+Merge: 5809065 980c443
+Author: Luan Torres <luantorres95@hotmail.com>
+Date:   Sat Oct 10 16:31:12 2015 -0300
+
+    Conflicts resolved
+
+commit 58090657268eba4ee61c07234ba6312a73ee1783
+Author: Luan Torres <luantorres95@hotmail.com>
+Date:   Sat Oct 10 16:22:53 2015 -0300
+
+    Removed all Back buttons and normalized post buttons layout
+
+commit 980c4436ad2cbadc320bc77d936209076ef19172
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 16:06:01 2015 -0300
+
+    spec/factories/avaliations renomeado
+
+commit 9f8f8f1bdc160b7b74280fb15c33f328032c0f8f
+Merge: 20d827a 6ea9554
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 16:04:27 2015 -0300
+
+    Merge branch 'master' of https://github.com/JellyRating/JellyRating
+
+commit 20d827a58b320f8fa36d0fda6963a5993e4aaccf
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 16:04:11 2015 -0300
+
+    redirecinamento apos login, funcionando, botao de like/dislike removidos se o usuario estiver deslogado
+
+commit 6ea95543dd0c538c1a002ec0f5ead94fb67c6064
+Author: Luan Torres <luantorres95@hotmail.com>
+Date:   Sat Oct 10 15:48:13 2015 -0300
+
+    Redefined home to login, added list and add media to menu
+
+commit 5b7cdb62633b72e7942d83f591a6be21e3ed2f11
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Sat Oct 10 15:41:24 2015 -0300
+
+    Fixed list_all being available only for logged users
+
+commit f1e7bd27ce43a8c98596ca8cca54083510800a0b
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 14:09:41 2015 -0300
+
+    mostrando contador de avaliacoes em recomendacao
+
+commit 82769b2d33bf3855927c9a9b60ee89a21fd8a62c
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 13:35:18 2015 -0300
+
+    alterando media_avaliation para avaliation onde ficou faltando
+
+commit 940280323d2313e3e560c0cbbfc213ff0ac9a658
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sat Oct 10 02:01:56 2015 -0300
+
+    recomendation avaliation working
+
+commit 2349c4283384224492d31fabbd4818d81977eacd
+Author: saasbook <saasbook@saasbook.(none)>
+Date:   Sat Oct 10 01:30:48 2015 -0300
+
+    media avaliation working(not showing yet)
+
+commit f002ef16f41d22ae73a5536bae23368722f77b6f
+Author: saasbook <saasbook@saasbook.(none)>
+Date:   Sat Oct 10 00:01:51 2015 -0300
+
+    avaliations
+
+commit da43c27cce238a284714051b3b68146f79e2519f
+Author: mateus <mmrocha94@gmail.com>
+Date:   Fri Oct 9 13:25:59 2015 -0300
+
+    Add filter to destroy recommendation
+
+commit e2972e022ffcce8afaa386df991db8269013382b
+Author: mateus <mmrocha94@gmail.com>
+Date:   Thu Oct 8 20:30:58 2015 -0300
+
+    Finished add recommendation
+
+commit 1b6a4f8e849f66d253f3dbb1b6ca29634ea15981
+Author: mateus <mmrocha94@gmail.com>
+Date:   Thu Oct 8 18:56:59 2015 -0300
+
+    Functional recommendation
+
+commit 96429d202f31917111c4d74767d02ce26bd472c1
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Thu Oct 8 09:34:56 2015 -0300
+
+    erb to haml
+
+commit 7252fc2e13d142a45db2cf3724480d5a6513d1f3
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Thu Oct 8 08:44:50 2015 -0300
+
+    Test fixes
+
+commit 07a3044a38354636678149a26f5fa7084003925b
+Author: saasbook <saasbook@saasbook.(none)>
+Date:   Thu Oct 8 07:58:18 2015 -0300
+
+    Movie Avaliation Model and Controller
+
+commit 28d48e3f6b69195b6e14d9fe7c63c98861e9d31d
+Merge: 7e86cc7 f6c947a
+Author: mateus <mmrocha94@gmail.com>
+Date:   Wed Oct 7 19:33:50 2015 -0300
+
+    Merge branch 'master' of https://github.com/JellyRating/JellyRating
+
+commit 7e86cc7342afc79a48f7b4d7d7aa5570add81f1a
+Author: mateus <mmrocha94@gmail.com>
+Date:   Wed Oct 7 19:33:23 2015 -0300
+
+    Admin e edit user, faltou no ultimo commit
+
+commit f6c947ac762dcca03e5b63b2df0e493669421fa4
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Wed Oct 7 13:49:44 2015 -0300
+
+    removido widgets
+
+commit ce845607ae2ee3f24618f52ed74da03713b6e75b
+Author: saasbook <saasbook@saasbook.(none)>
+Date:   Wed Oct 7 12:35:21 2015 -0300
+
+    user model test
+
+commit 71b1764c8f17824112e7c80dff5d37a32dc75d9b
+Merge: 852da7a abd6262
+Author: mateus <mmrocha94@gmail.com>
+Date:   Tue Oct 6 17:49:47 2015 -0300
+
+    Merge branch 'master' of https://github.com/JellyRating/JellyRating
+
+commit 852da7a64cbe17543db66cb580e3d2e8c633f4d5
+Author: mateus <mmrocha94@gmail.com>
+Date:   Tue Oct 6 17:49:08 2015 -0300
+
+    finish edit user
+
+commit abd626224ec797162a53c69402253e3ea5b63566
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Tue Oct 6 16:45:16 2015 -0300
+
+    Show media
+
+commit 01d542ec9c27b5f25ed5a64ec4e53192f6eebcd5
+Author: mateus <mmrocha94@gmail.com>
+Date:   Tue Oct 6 16:31:25 2015 -0300
+
+    finish login
+
+commit cd9e747dc10fefd96a88028ae7c267374de7521a
+Author: Gian <gian_l.cicca@hotmail.com>
+Date:   Tue Oct 6 10:32:18 2015 -0300
+
+    Show media
+
+commit caea2ca870807be0eb68e5dc52b13d435b9cabe6
+Author: saasbook <saasbook@saasbook.(none)>
+Date:   Tue Oct 6 10:05:18 2015 -0300
+
+    MovieAvaliation Model and migration
+
+commit e6ba0b0277e76c45305550724994a830d8ab578b
+Author: saasbook <saasbook@saasbook.(none)>
+Date:   Sun Oct 4 21:00:03 2015 -0300
+
+    Added show all media
+
+commit 057d452431bffb17831a1abc13ffcd9371605293
+Merge: ac7eaa6 2b83ae2
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sun Oct 4 02:27:16 2015 -0300
+
+    Merge branch 'login-out'
+    
+    Conflicts:
+    	config/routes.rb
+    	db/schema.rb
+
+commit 2b83ae2e9549af1e8fc818d1f647b0b4cb406a14
+Author: Felipe Brigalante <felipe.brigalante@gmail.com>
+Date:   Sun Oct 4 02:20:29 2015 -0300
+
+    login funcionando
+
+commit ac7eaa679a961cc039d30aca80e018939a02e021
+Author: Luan Torres <luantorres95@hotmail.com>
+Date:   Sun Oct 4 00:13:39 2015 -0300
+
+    Add movies completed
+
+commit b6f4f4993824c23beae9b74c79ed238301955d75
+Author: Luan Torres <luantorres95@hotmail.com>
+Date:   Sat Oct 3 23:18:14 2015 -0300
+
+    Removed config.active_record.mass_assignment_sanitizer = :strict from development.rb
+
+commit 2ce1597c60f21a12cb85fc416291e7a31b
