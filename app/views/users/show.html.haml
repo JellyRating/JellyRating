@@ -24,3 +24,17 @@
   .list-group
     - @user.avaliations.each do |avaliation|
       = link_to avaliation.rateable.title + " - " + avaliation.aval_str, item_path(avaliation.rateable), :class => 'list-group-item'
+
+- if !@user.commentaries.empty?
+  %h3 Commentaries
+  .row
+    - @user.commentaries.each do |commentary|
+      .panel.panel-default
+        .panel-heading
+          %span.text-muted #{commentary.user.name} commented about
+          = link_to(commentary.commentable.title, item_path(commentary.commentable))
+          %span.text-muted #{time_ago_in_words(commentary.created_at)} ago
+        .panel-body
+          - commentary.comment.split("\n").each do |line|
+            = line
+            %br
