@@ -21,15 +21,4 @@
   = button_to("Dislike", recommendation_avaliations_path(@recommendation, :rating => false),  method: :post)
 
 = link_to "New Commentary", new_recommendation_commentary_path(@recommendation)
-- if !@recommendation.commentaries.empty?
-  %h3 User's commentaries:
-  .row
-    - @recommendation.commentaries.last_commentaries.each do |commentary|
-      .panel.panel-default
-        .panel-heading
-          = link_to commentary.user.name, user_path(commentary.user)
-          %span.text-muted commented #{time_ago_in_words(commentary.created_at)} ago
-        .panel-body
-          - commentary.comment.split("\n").each do |line|
-            = line
-            %br
+= render :partial => 'shared/commentary_list', locals: {commentable: @recommendation}
