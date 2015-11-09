@@ -34,30 +34,13 @@
         %span.text-muted #{time_ago_in_words(avaliation.updated_at)} ago
 - if !@user.commentaries.empty?
   %h3 Commentaries
-  .row
-    - @user.commentaries.last_commentaries.each do |commentary|
-      .panel.panel-default
-        .panel-heading
-          %span.text-muted #{commentary.user.name} commented about          
-          = link_to(commentary.commentable.title, item_path(commentary.commentable))
-          %span.text-muted #{time_ago_in_words(commentary.created_at)} ago
-        .panel-body
-          - commentary.comment.split("\n").each do |line|
-            = line
-            %br
-
-/ - @user.timeline.each do |action|
-/   - if action.is_a? Recommendation
-/     = link_to recommendation.title, recommendation_path(recommendation), :class => 'list-group-item'
-/   - if action.is_a? Avaliation
-/     = link_to "#{avaliation.rating2string} #{avaliation.rateable.title}", item_path(avaliation.rateable), :class => 'list-group-item'
-/   - if action.is_a? Commentary
-/     .panel.panel-default
-/       .panel-heading
-/         %span.text-muted #{commentary.user.name} commented about          
-/         = link_to(commentary.commentable.title, item_path(commentary.commentable))
-/         %span.text-muted #{time_ago_in_words(commentary.created_at)} ago
-/       .panel-body
-/         - commentary.comment.split("\n").each do |line|
-/           = line
-/           %br
+  - @user.commentaries.last_commentaries.each do |commentary|
+    .panel.panel-default
+      .panel-heading
+        %span.text-muted #{commentary.user.name} commented about          
+        = link_to(commentary.commentable.title, item_path(commentary.commentable))
+        %span.text-muted #{time_ago_in_words(commentary.created_at)} ago
+      .panel-body
+        - commentary.comment.split("\n").each do |line|
+          = line
+          %br

@@ -1,5 +1,10 @@
 %h2= "#{@item.title} (#{@item.release_date.year})"
 
+.progress
+  %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{100 * @like_count/(@like_count + @dislike_count)}%"}
+    = @like_count
+  %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 * @dislike_count/(@like_count + @dislike_count)}%"}
+    = @dislike_count
 = link_to "#{pluralize(@like_count, 'person')} liked", item_avaliations_path(@item, :rating => true),  method: :post, :class => 'btn btn-success'
 = link_to "#{pluralize(@dislike_count, 'person')} disliked", item_avaliations_path(@item, :rating => false),  method: :post, :class => 'btn btn-danger'
 
