@@ -14,7 +14,9 @@ class SessionsController < ApplicationController
       if(session[:return_to].nil?)
           redirect_to root_url
       else
-          redirect_to session[:return_to]
+          return_to = session[:return_to]
+          session.delete(:return_to)
+          redirect_to return_to
       end
     else
       flash[:warning] = ['Invalid email/password combination']
