@@ -4,11 +4,12 @@ class Avaliation < ActiveRecord::Base
 	validates_inclusion_of :rating, in: [true, false]
 	validates :user_id, :uniqueness => { :scope => [:rateable_type, :rateable_id] }
 
-	def aval_str
-		if self.rating
-			'Liked'
-		else
-			'Disliked'
-		end
-	end
+	#scopes
+  def self.last_avaliations
+    order('updated_at desc')
+  end
+
+	def rating2string
+		str = "#{self.rating ? 'Liked' : 'Disliked'}"					
+	end	
 end

@@ -1,12 +1,7 @@
 %h2= "#{@item.title} (#{@item.release_date.year})"
 
-%ul
-  %li= "#{pluralize(@like_count, 'person')} liked"
-  %li= "#{pluralize(@dislike_count, 'person')} disliked"
-
-- if(logged_in?)
-  = button_to("Like", item_avaliations_path(@item, :rating => true),  method: :post)
-  = button_to("Dislike", item_avaliations_path(@item, :rating => false),  method: :post) 
+= link_to "#{pluralize(@like_count, 'person')} liked", item_avaliations_path(@item, :rating => true),  method: :post, :class => 'btn btn-success'
+= link_to "#{pluralize(@dislike_count, 'person')} disliked", item_avaliations_path(@item, :rating => false),  method: :post, :class => 'btn btn-danger'
 
 - if !@item.recommendations1.empty? or !@item.recommendations2.empty?
   %h3 Users who liked this also recommend:
@@ -15,7 +10,7 @@
       = link_to recommendation.item2.title, recommendation_path(recommendation), :class => 'list-group-item'
     - @item.recommendations2.each do |recommendation|
       = link_to recommendation.item1.title, recommendation_path(recommendation), :class => 'list-group-item'
-= link_to "New Commentary", new_item_commentary_path(@item)
+= link_to "New Commentary", new_item_commentary_path(@item), :class => 'btn btn-primary btn-whitelink'
 = render :partial => 'shared/commentary_list', locals: {commentable: @item}
             
 

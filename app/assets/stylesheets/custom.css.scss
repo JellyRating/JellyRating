@@ -93,3 +93,16 @@ input {
 .panel {
   position:relative;
 }
+
+.list-group-item-like {
+  background-color: #CCFFCC;
+  border-color: #DDD;
+}
+.list-group-item-dislike{
+  background-color: #F5D8D7;
+  border-color: #DDD;
+}
+
+a.btn-whitelink:visited{
+  color: white
+}

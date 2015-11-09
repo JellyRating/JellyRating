@@ -1,12 +1,11 @@
 - if !commentable.commentaries.empty?
   %h3 User have commented:
-  .row
-    - commentable.commentaries.last_commentaries.each do |commentary|
-      .panel.panel-default
-        .panel-heading
-          = link_to commentary.user.name, user_path(commentary.user)
-          %span.text-muted commented #{time_ago_in_words(commentary.created_at)} ago
-        .panel-body
-          - commentary.comment.split("\n").each do |line|
-            = line
-            %br
+  - commentable.commentaries.last_commentaries.each do |commentary|
+    .panel.panel-default
+      .panel-heading
+        = link_to commentary.user.name, user_path(commentary.user)
+        %span.text-muted commented #{time_ago_in_words(commentary.created_at)} ago
+      .panel-body
+        - commentary.comment.split("\n").each do |line|
+          = line
+          %br
