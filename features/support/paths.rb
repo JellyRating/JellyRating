@@ -15,6 +15,7 @@ module NavigationHelpers
 
     when /^the (JellyRatting )?home\s?page$/ then '/login'
     when /^the media page$/ then '/media/list_all'
+    when /^the signup page$/ then '/signup'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

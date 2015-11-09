@@ -80,7 +80,7 @@ group :test do
   gem "shoulda-matchers", "~> 2.8.0"
 
   # Test coverage
-  gem 'simplecov', require: false
+  gem 'simplecov', :require => false, :group => :test
 
   gem 'autotest-rails'
 
