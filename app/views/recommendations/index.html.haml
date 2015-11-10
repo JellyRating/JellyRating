@@ -6,9 +6,9 @@
       %th{:colspan => "3"}
   %tbody
     - @recommendations.each do |recommendation|
-      %tr
-        %td= recommendation.item1.title
-        %td= recommendation.item2.title
+      %tr{:class => "recommendation"} 
+        %td{:class => "title1"}= recommendation.item1.title 
+        %td{:class => "title2"}= recommendation.item2.title  
         %td= link_to 'Show', recommendation
         - if current_user and (current_user.admin? or current_user == recommendation.created_by)
           %td= link_to 'Delete', recommendation, method: :delete, data: { confirm: 'Are you sure?' }

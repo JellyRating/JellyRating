@@ -14,3 +14,20 @@ Given /I am on the "(.*)", "(.*)" recommendation page/ do |title1, title2|
   recommendation ||= Recommendation.find_by(item1: item1, item2: item2)
   visit recommendation_path(recommendation.id)
 end
+
+Then /I should see "(.*)", "(.*)" recommendation$/ do |title1, title2|
+  item1 = Item.find_by(title: title1)
+  item2 = Item.find_by(title: title2)
+  recommendation = Recommendation.find_by(item2: item1, item1: item2)
+  recommendation ||= Recommendation.find_by(item1: item1, item2: item2)
+  url = recommendation_path(recommendation)
+  page.should have_xpath("//a[@href = '#{url}']")
+end
+
+Then /I should not see "(.*)", "(.*)" recommendation$/ do |title1, title2|
+  item1 = Item.find_by(title: title1)
+  item2 = Item.find_by(title: title2)
+  recommendation = Recommendation.find_by(item2: item1, item1: item2)
+  recommendation ||= Recommendation.find_by(item1: item1, item2: item2)
+  (recommendation.nil?).should be true
+end

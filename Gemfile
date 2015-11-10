@@ -56,7 +56,6 @@ gem 'factory_girl_rspec', '~> 2.1.0'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'debugger'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -67,7 +66,7 @@ end
 
 # Acceptance tests
 group :cucumber do
-  gem 'cucumber', '~> 1.3.18'
+  gem 'cucumber', '~> 1.3.20'
   gem 'cucumber-rails'
   # Version fixed greater than 1.4.1. See:
   # https://github.com/DatabaseCleaner/database_cleaner/issues/317

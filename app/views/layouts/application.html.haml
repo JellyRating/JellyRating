@@ -12,7 +12,7 @@
         %nav
           %ul.nav.navbar-nav.navbar-right
             %li= link_to 'Home', root_path
-            %li= link_to 'Item list', '/items/list_all'            
+            %li= link_to 'Items', '/items/list_all'            
             %li= link_to 'Recommendations', recommendations_path
             - if logged_in?
               %li= link_to 'Members', users_path

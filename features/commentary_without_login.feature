@@ -20,18 +20,16 @@ Background: item have been added to database
   And the following user exist:
   | name  | email             | password  | password_confirmation |
   | John  | john@johnson.com  | 123456    | 123456                |
-
-  And I am logged in as "john@johnson.com", "123456"
+  
   And I am on the "Aladdin" item page
 
 Scenario: create a new commentary about this item
   When I follow "New Commentary"
+  And I fill in the following:
+  | Email          | john@johnson.com  |
+  | Password       | 123456            |
+  And I press "Log in"
   And I fill in "Comment" with "Nice movie"
   And I press "Post"
   Then I should see "John"
   And I should see "Nice movie"
-
-Scenario: fail tocreate a new commentary about this item
-  When I follow "New Commentary"
-  And I press "Post"
-  Then I should see "Comment can't be blank"

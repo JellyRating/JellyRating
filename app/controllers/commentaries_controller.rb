@@ -18,34 +18,14 @@ class CommentariesController < ApplicationController
       redirect_to recommendation_path(@commentable) if @commentable.is_a? Recommendation
       redirect_to item_path(@commentable) if @commentable.is_a? Item
     else
-      flash[:warning] = @commentary.errors.full_message
+      flash[:warning] = @commentary.errors.full_messages
       render 'new'
     end
 
   end
 
-  # PATCH/PUT /commentaries/1
-  # PATCH/PUT /commentaries/1.json
-  def update
-    respond_to do |format|
-      if @commentary.update(commentary_params)
-        format.html { redirect_to @commentary, notice: 'Commentary was successfully updated.' }
-        format.json { render :show, status: :ok, location: @commentary }
-      else
-        format.html { render :edit }
-        format.json { render json: @commentary.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /commentaries/1
-  # DELETE /commentaries/1.json
   def destroy
-    @commentary.destroy
-    respond_to do |format|
-      format.html { redirect_to commentaries_url, notice: 'Commentary was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    
   end
 
   private

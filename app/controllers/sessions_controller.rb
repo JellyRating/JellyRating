@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user and user.authenticate(params[:session][:password])
-      flash[:notice] = "Welcome back #{user.name}."
+      flash[:notice] = "Welcome back, #{user.name}."
       log_in user
       params[:remember_me] == "1" ? remember(user) : forget(user)
       if(session[:return_to].nil?)
