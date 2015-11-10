@@ -1,6 +1,4 @@
 class CommentariesController < ApplicationController
-  before_action :set_commentary, only: [:show, :edit, :update, :destroy]
-  before_filter :has_user, :only => [:new, :create]
   before_filter :has_commentable, :only => [:new, :create]
   # GET /commentaries/new
   def new
@@ -28,23 +26,12 @@ class CommentariesController < ApplicationController
     
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_commentary
-      @commentary = Commentary.find(params[:id])
-    end
+  private    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def commentary_params
       params.require(:commentary).permit(:commentable, :user, :comment)
     end
-
-    def has_user
-    unless @current_user
-      flash[:warning] = 'You must be logged to rate a item!'
-      redirect_to '/login'
-    end
-  end
 
   def has_commentable
     @commentable = Item.find_by_id(params[:item_id])

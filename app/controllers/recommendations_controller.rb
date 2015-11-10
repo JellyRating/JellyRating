@@ -70,8 +70,4 @@ class RecommendationsController < ApplicationController
       flash[:warning] = ["Select a item"]
       redirect_to new_recommendation_path if params[:item1] == '' or params[:item2] == ''
     end
-
-    def is_admin_or_owner
-      redirect_to recommendation_path @recommendation unless (current_user and (current_user.admin? or current_user?(@recommendation.created_by)))
-    end
 end

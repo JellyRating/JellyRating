@@ -28,6 +28,10 @@ Background: item have been added to database
   | item1   | item2           | user_email        | rating  |
   | Aladdin | Chocolat        | john@johnson.com  | dislike |
 
+  And the following item commentary exist:
+  | item    | comment     | user_email        |
+  | Aladdin | Nice movie  | john@johnson.com  |
+
   And I am logged in as "mary@johnson.com", "654321"
   And I am on the "john@johnson.com" user page
 
@@ -38,3 +42,4 @@ Scenario: view the other user recommendations and ratings
   And I should see "Aladdin", "The Terminator" recommendation
   And I should see "Liked Aladdin"
   And I should see "Disliked Aladdin <-> Chocolat"
+  And I should see "John commented about Aladdin"
