@@ -9,4 +9,5 @@
     - @item.each do |i|
       %tr
         %td= link_to(i.title, item_path(i))
-        %td= i.release_date
+        %td= i.release_date.year
+        
