@@ -1,0 +1,25 @@
+%h1 Jelly Rating
+
+%h3 Recent additions
+%ul.list-group
+  %li.list-group-item.disabled
+    .row
+      .col-sm-2 Title
+      .col-sm-2 Release Date
+      .col-sm-3 Avaliations
+  - @recent_items.each do |i|
+    %li.list-group-item
+      .row
+        - like_count = i.avaliations.where("avaliations.rating = ?", true).size
+        - dislike_count = i.avaliations.where("avaliations.rating = ?", false).size
+        - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
+        .col-sm-2
+          = link_to(i.title, item_path(i))
+        .col-sm-2
+          = i.release_date.year
+        .col-sm-3
+          .progress(style = "margin-bottom: 0px;")
+            %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
+              = like_count
+            %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
+              = dislike_count
