@@ -1,16 +1,31 @@
 -#%p#notice= notice
 %h1 Listing Recommendations
-%table.table
-  %thead
-    %tr
-      %th{:colspan => "3"}
-  %tbody
-    - @recommendations.each do |recommendation|
-      %tr{:class => "recommendation"} 
-        %td{:class => "title1"}= recommendation.item1.title 
-        %td{:class => "title2"}= recommendation.item2.title  
-        %td= link_to 'Show', recommendation
-        - if current_user and (current_user.admin? or current_user == recommendation.created_by)
-          %td= link_to 'Delete', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Recommendation', new_recommendation_path
+%ul.list-group
+  %li.list-group-item.disabled
+    .row
+      .col-sm-4 Recommendation
+      .col-sm-3 Avaliations
+  - @recommendations.each do |r|
+    %li.list-group-item
+      .row
+        - like_count = r.avaliations.where("avaliations.rating = ?", true).size
+        - dislike_count = r.avaliations.where("avaliations.rating = ?", false).size
+        - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
+        .col-sm-4
+          = link_to(r.title, recommendation_path(r))
+        .col-sm-3
+          .progress(style = "margin-bottom: 0px;")
+            %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
+              = like_count
+            %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
+              = dislike_count
+        .col-sm-3
+          = link_to recommendation_avaliations_path(r, :rating => true),  method: :post, :class => 'btn btn-xs btn-success btn-whitelink' do
+            %span(class="glyphicon glyphicon-thumbs-up")
+            Like
+          = link_to recommendation_avaliations_path(r, :rating => false),  method: :post, :class => 'btn btn-xs btn-danger btn-whitelink' do
+            %span(class="glyphicon glyphicon-thumbs-down")
+            Dislike       
+= link_to new_recommendation_path, :class => "btn btn-primary btn-whitelink" do
+  %span(class="glyphicon glyphicon-plus")
+  New Recommendation

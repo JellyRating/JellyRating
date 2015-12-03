@@ -17,9 +17,16 @@
             %li= link_to 'Items', '/items/list_all'            
             %li= link_to 'Recommendations', recommendations_path
             - if logged_in?
-              %li= link_to 'Members', users_path
-              %li= link_to 'Add Item', new_item_path
-              %li= link_to 'Add Recommendation', new_recommendation_path
+              %li
+                = link_to users_path do
+                  %span(class="glyphicon glyphicon-group")
+                  Members
+              %li
+                = link_to new_item_path do
+                  Add Item
+              %li
+                = link_to new_recommendation_path do
+                  Add Recommendation
               %li.dropdown
                 %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown"}
                   Account

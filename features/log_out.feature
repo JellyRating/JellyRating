@@ -12,6 +12,6 @@ Background: users exist in the database and loged in
   And I am logged in as "john@johnson.com", "123456"
   And I am on "the homepage"
 Scenario: logout
-  When I follow "Log out"
-  Then I should see "Log in"
-  And I should see "Sign up"
+  When I follow "Log Out"
+  Then I should see "Log In"
+  And I should see "Sign Up"

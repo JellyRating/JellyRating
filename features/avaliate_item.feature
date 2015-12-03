@@ -26,7 +26,7 @@ Scenario: like the item
   And I should see "0 people liked"
 
 Scenario: not logged in avaliation
-  When I follow "Log out"
+  When I follow "Log Out"
   And I am on the "Aladdin" item page
   And I follow "0 people liked"
   And I fill in the following:

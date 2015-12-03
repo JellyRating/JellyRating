@@ -28,4 +28,7 @@
           = link_to item_avaliations_path(i, :rating => false),  method: :post, :class => 'btn btn-xs btn-danger btn-whitelink' do
             %span(class="glyphicon glyphicon-thumbs-down")
             Dislike
+= link_to new_item_path, :class => "btn btn-primary btn-whitelink" do
+  %span(class="glyphicon glyphicon-plus")
+  New Item
             
