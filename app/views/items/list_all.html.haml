@@ -1,13 +1,31 @@
 %h1 List of all Items
-
-%table.table
-  %thead
-    %tr
-      %th Item Title
-      %th Release Date
-  %tbody
-    - @item.each do |i|
-      %tr
-        %td= link_to(i.title, item_path(i))
-        %td= i.release_date.year
-        
+%ul.list-group
+  %li.list-group-item.disabled
+    .row
+      .col-sm-2 Title
+      .col-sm-2 Release Date
+      .col-sm-3 Avaliations
+  - @item.each do |i|
+    %li.list-group-item
+      .row
+        - like_count = i.avaliations.where("avaliations.rating = ?", true).size
+        - dislike_count = i.avaliations.where("avaliations.rating = ?", false).size
+        - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
+        .col-sm-2
+          = link_to(i.title, item_path(i))
+        .col-sm-2
+          = i.release_date.year
+        .col-sm-3
+          .progress(style = "margin-bottom: 0px;")
+            %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
+              = like_count
+            %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
+              = dislike_count
+        .col-sm-3
+          = link_to item_avaliations_path(i, :rating => true),  method: :post, :class => 'btn btn-xs btn-success btn-whitelink' do
+            %span(class="glyphicon glyphicon-thumbs-up")
+            Like
+          = link_to item_avaliations_path(i, :rating => false),  method: :post, :class => 'btn btn-xs btn-danger btn-whitelink' do
+            %span(class="glyphicon glyphicon-thumbs-down")
+            Dislike
+            
