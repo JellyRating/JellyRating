@@ -1,6 +1,6 @@
 - if !commentable.commentaries.empty?
   %h3 User have commented:
-  - commentable.commentaries.last_commentaries.each do |commentary|
+  - commentable.commentaries.recent.each do |commentary|
     .panel.panel-default
       .panel-heading
         = link_to commentary.user.name, user_path(commentary.user)

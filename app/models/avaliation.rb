@@ -5,7 +5,7 @@ class Avaliation < ActiveRecord::Base
 	validates :user_id, :uniqueness => { :scope => [:rateable_type, :rateable_id] }
 
 	#scopes
-  def self.last_avaliations
+  def self.recent
     order('updated_at desc')
   end
 

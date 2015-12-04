@@ -19,7 +19,7 @@ class Recommendation < ActiveRecord::Base
   end
 
   #scopes
-  def self.last_recommendations
+  def self.recent
     order('created_at desc')
   end
 

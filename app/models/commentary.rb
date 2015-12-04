@@ -4,7 +4,7 @@ class Commentary < ActiveRecord::Base
   belongs_to :commentable, :polymorphic => true
 
   #scopes
-  def self.last_commentaries
+  def self.recent
     order('created_at desc')
   end
 end

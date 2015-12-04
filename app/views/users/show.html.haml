@@ -16,7 +16,7 @@
 - if !@user.recommendations.empty?
   %h3 Recommendations:
   .list-group
-    - @user.recommendations.last_recommendations.each do |recommendation|
+    - @user.recommendations.recent.each do |recommendation|
       .list-group-item
         %span.text-muted Created
         %strong
@@ -26,7 +26,7 @@
 - if !@user.avaliations.empty?
   %h3 Avaliations:
   .list-group
-    - @user.avaliations.last_avaliations.each do |avaliation|
+    - @user.avaliations.recent.each do |avaliation|
       %div{:class => "list-group-item #{avaliation.rating ? 'list-group-item-like' : 'list-group-item-dislike'}"}
         %span.text-muted #{avaliation.rating2string}
         %strong
@@ -34,7 +34,7 @@
         %span.text-muted #{time_ago_in_words(avaliation.updated_at)} ago
 - if !@user.commentaries.empty?
   %h3 Commentaries
-  - @user.commentaries.last_commentaries.each do |commentary|
+  - @user.commentaries.recent.each do |commentary|
     .panel.panel-default
       .panel-heading
         %span.text-muted #{commentary.user.name} commented about          

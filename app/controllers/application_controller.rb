@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
       else
         session.delete(:return_to)
       end
-    	redirect_to root_path and return unless current_user
+    	redirect_to login_path and return unless current_user
     end
 end

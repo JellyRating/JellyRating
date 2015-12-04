@@ -19,6 +19,7 @@ Scenario: fill the form and submit
   And I check "Remember me on this computer"
   And I press "Log in"
   Then I should see "Welcome back, John"
+  And I follow "Profile"
   And I should see "John"
   And I should see "john@johnson.com"
 
