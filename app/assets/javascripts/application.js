@@ -15,3 +15,10 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $("a[data-remote]").on("ajax:success", function(){
+    $("#item_progress_" + $(this).attr("id")).load(location.href + " #item_progress_" + $(this).attr("id"));    
+  });
+});
+
