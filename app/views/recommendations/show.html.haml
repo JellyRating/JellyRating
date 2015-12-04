@@ -12,8 +12,8 @@
       - if current_user and (current_user.admin? or current_user == @recommendation.created_by)
         %td= link_to 'Delete', @recommendation, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to "#{pluralize(@like_count, 'person')} liked", recommendation_avaliations_path(@recommendation, :rating => true),  method: :post, :class => 'btn btn-success btn-whitelink'
-= link_to "#{pluralize(@dislike_count, 'person')} disliked", recommendation_avaliations_path(@recommendation, :rating => false),  method: :post, :class => 'btn btn-danger btn-whitelink'
+= link_to "#{pluralize(@recommendation.like_count, 'person')} liked", recommendation_avaliations_path(@recommendation, :rating => true),  method: :post, :class => 'btn btn-success btn-whitelink'
+= link_to "#{pluralize(@recommendation.dislike_count, 'person')} disliked", recommendation_avaliations_path(@recommendation, :rating => false),  method: :post, :class => 'btn btn-danger btn-whitelink'
 
 = link_to "New Commentary", new_recommendation_commentary_path(@recommendation), :class => 'btn btn-primary btn-whitelink'
 = render :partial => 'shared/commentary_list', locals: {commentable: @recommendation}

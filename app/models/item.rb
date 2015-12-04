@@ -12,4 +12,20 @@ class Item < ActiveRecord::Base
   def capitalize_title
     self.title = self.title.split(/\s+/).map(&:downcase).map(&:capitalize).join(' ')
   end
+
+  def like_count
+    self.avaliations.where("avaliations.rating = ?", true).size
+  end
+
+  def dislike_count
+    self.avaliations.where("avaliations.rating = ?", false).size
+  end
+
+  def self.recent
+    order('created_at desc')
+  end
+
+  def self.top_rated
+    all.sort{|a,b| b.like_count <=> a.like_count}
+  end
 end

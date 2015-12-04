@@ -10,13 +10,58 @@
   - @recent_items.each do |i|
     %li.list-group-item
       .row
-        - like_count = i.avaliations.where("avaliations.rating = ?", true).size
-        - dislike_count = i.avaliations.where("avaliations.rating = ?", false).size
+        - like_count = i.like_count
+        - dislike_count = i.dislike_count
         - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
         .col-sm-2
           = link_to(i.title, item_path(i))
         .col-sm-2
           = i.release_date.year
+        .col-sm-3
+          .progress(style = "margin-bottom: 0px;")
+            %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
+              = like_count
+            %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
+              = dislike_count
+
+%h3 Top rated
+%ul.list-group
+  %li.list-group-item.disabled
+    .row
+      .col-sm-2 Title
+      .col-sm-2 Release Date
+      .col-sm-3 Avaliations
+  - @top_items.each do |t|
+    %li.list-group-item
+      .row
+        - like_count = t.like_count
+        - dislike_count = t.dislike_count
+        - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
+        .col-sm-2
+          = link_to(t.title, item_path(t))
+        .col-sm-2
+          = t.release_date.year
+        .col-sm-3
+          .progress(style = "margin-bottom: 0px;")
+            %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
+              = like_count
+            %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
+              = dislike_count
+
+%h3 Top recommendations
+%ul.list-group
+  %li.list-group-item.disabled
+    .row
+      .col-sm-2 Recommendation
+      .col-sm-3 Avaliations
+  - @top_recommendations.each do |r|
+    %li.list-group-item
+      .row
+        - like_count = r.like_count
+        - dislike_count = r.dislike_count
+        - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
+        .col-sm-4
+          = link_to(r.title, recommendation_path(r))
         .col-sm-3
           .progress(style = "margin-bottom: 0px;")
             %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}

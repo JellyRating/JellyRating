@@ -22,8 +22,6 @@ class ItemsController < ApplicationController
   def show
     id = params[:id]
     @item = Item.find(id)
-    @like_count = @item.avaliations.where("avaliations.rating = ?", true).size
-    @dislike_count = @item.avaliations.where("avaliations.rating = ?", false).size
   end
 
   def list_all

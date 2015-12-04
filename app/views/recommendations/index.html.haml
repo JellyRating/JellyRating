@@ -8,8 +8,8 @@
   - @recommendations.each do |r|
     %li.list-group-item
       .row
-        - like_count = r.avaliations.where("avaliations.rating = ?", true).size
-        - dislike_count = r.avaliations.where("avaliations.rating = ?", false).size
+        - like_count = r.like_count
+        - dislike_count = r.dislike_count
         - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
         .col-sm-4
           = link_to(r.title, recommendation_path(r))

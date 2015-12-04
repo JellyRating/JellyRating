@@ -14,8 +14,7 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/1
   # GET /recommendations/1.json
   def show
-    @like_count = @recommendation.avaliations.where("avaliations.rating = ?", true).size
-    @dislike_count = @recommendation.avaliations.where("avaliations.rating = ?", false).size
+    
   end
 
   # GET /recommendations/new
