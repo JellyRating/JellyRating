@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   protected
     def set_current_user
       if (current_user.nil?)
+        print "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + request.fullpath
         session[:return_to] = request.fullpath
       else
         session.delete(:return_to)

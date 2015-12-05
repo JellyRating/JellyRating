@@ -13,7 +13,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the (JellyRatting )?home\s?page$/ then '/login'
+    when /^the (JellyRatting )?home\s?page$/ then root_path
     when /^the signup page$/ then '/signup'
 
     # Add more mappings here.

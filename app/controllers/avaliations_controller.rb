@@ -19,16 +19,7 @@ class AvaliationsController < ApplicationController
     end
   end
 
-  def index
-    avaliation = Avaliation.where(user: @current_user, rateable: @rateable)
-    if avaliation.length == 0
-      @current_user.avaliations << @rateable.avaliations.build({:user =>@current_user, :rating => params[:rating]})
-    else
-      avaliation[0].update(rating:params[:rating])
-    end
-    redirect_to recommendation_path(@rateable) if @rateable.is_a? Recommendation
-    redirect_to item_path(@rateable) if @rateable.is_a? Item
-  end
+  def index; create;  end
 
   # GET /avaliations/new
   def new

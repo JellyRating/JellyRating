@@ -80,3 +80,7 @@ Then /^(?:|I )should not see "([^"]*)"$/ do |text|
     assert page.has_no_content?(text)
   end
 end
+
+Then /^(?:|I )should see "([^"]*)" before "([^"]*)"$/ do |first_item, second_item|
+  page.body.should =~ /#{first_item}.*#{second_item}/m
+end
