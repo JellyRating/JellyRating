@@ -1,4 +1,4 @@
-%li.list-group-item{:id => "item_#{item.id}"}
+%li.list-group-item
   .row
     - like_count = item.like_count
     - dislike_count = item.dislike_count
@@ -8,15 +8,16 @@
     .col-sm-2
       = item.release_date.year
     .col-sm-3
-      .progress{:id => "item_progress_#{item.id}", :style => "margin-bottom: 0px;"}
+      .progress{:class => "progress_item_#{item.id}", :style => "margin-bottom: 0px;"}
         %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
           = like_count
         %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
           = dislike_count
-    .col-sm-3
-      = link_to item_avaliations_path(item, :rating => true),  method: :post, :class => 'btn btn-xs btn-success btn-whitelink', :remote => true, :id => "#{item.id}" do
-        %span(class="glyphicon glyphicon-thumbs-up")
-        Like
-      = link_to item_avaliations_path(item, :rating => false),  method: :post, :class => 'btn btn-xs btn-danger btn-whitelink', :remote => true, :id => "#{item.id}" do
-        %span(class="glyphicon glyphicon-thumbs-down")
-        Dislike
+    - if logged_in?
+      .col-sm-3
+        = link_to item_avaliations_path(item, :rating => true),  method: :post, :class => 'btn btn-xs btn-success btn-whitelink', :remote => true, :id => "item_#{item.id}" do
+          %span(class="glyphicon glyphicon-thumbs-up")
+          Like
+        = link_to item_avaliations_path(item, :rating => false),  method: :post, :class => 'btn btn-xs btn-danger btn-whitelink', :remote => true, :id => "item_#{item.id}" do
+          %span(class="glyphicon glyphicon-thumbs-down")
+          Dislike

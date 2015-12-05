@@ -16,9 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('ready', function(){
   $("a[data-remote]").on("ajax:success", function(){
-    $("#item_progress_" + $(this).attr("id")).load(location.href + " #item_progress_" + $(this).attr("id"));    
+    $(".progress_" + $(this).attr("id")).load(location.href + " .progress_" + $(this).attr("id"));    
   });
 });
 
