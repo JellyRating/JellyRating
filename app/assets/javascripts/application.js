@@ -14,11 +14,20 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require select2.full
 //= require_tree .
 
 var setup = function() {
   $("a[data-remote]").on("ajax:success", function(){
-    $(".progress_" + $(this).attr("id")).load(location.href + " .progress_" + $(this).attr("id"));    
+    $(".progress_" + $(this).attr("id")).load(location.href + " .progress_" + $(this).attr("id"));
+  });
+
+  $( "#dropdown" ).select2({
+    theme: "bootstrap"
+  });
+
+  $(function() {
+    $('#item_tag_list').select2({tags: true})
   });
 };
 

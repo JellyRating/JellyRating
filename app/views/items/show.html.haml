@@ -1,5 +1,8 @@
 %h2= "#{@item.title} (#{@item.release_date.year})"
 
+
+%h4 #{@item.tag_list}
+
 / - like_bar = 100 * @like_count/(@like_count + @dislike_count == 0 ? 1 : @like_count + @dislike_count)
 / .progress
 /   %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}

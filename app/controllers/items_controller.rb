@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def create
@@ -15,6 +16,7 @@ class ItemsController < ApplicationController
       redirect_to item_path(@item)
     else
       flash[:warning] = @item.errors.full_messages
+      @tags = ActsAsTaggableOn::Tag.all
       render 'new'
     end
   end
@@ -30,6 +32,6 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:title, :release_date);
+      params.require(:item).permit(:title, :release_date, :tag_list => []);
     end
 end

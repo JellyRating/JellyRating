@@ -37,6 +37,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Haml for templates
 gem 'haml'
 
+gem 'acts-as-taggable-on', '~> 3.4'
+
+gem "select2-rails", ">= 4.0.0", github: 'nilbus/select2-rails', branch: 'full'
+
 # Use bcrypt for password
 gem 'bcrypt', '3.1.7'
 

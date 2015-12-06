@@ -9,6 +9,10 @@ class Item < ActiveRecord::Base
   has_many :recommendations2, class_name: "Recommendation", foreign_key: "item2_id"
   has_many :users, :through => :avaliations
 
+
+  acts_as_taggable
+  
+
   def capitalize_title
     self.title = self.title.split(/\s+/).map(&:downcase).map(&:capitalize).join(' ')
   end

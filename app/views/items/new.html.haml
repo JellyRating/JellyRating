@@ -8,4 +8,10 @@
   = label :item, :release_date, 'Released On'
   = date_select :item, :release_date, :start_year => 1930, :end_year => Time.now.year, :discard_day => true, :discard_month => true
 
+
+  .input-row{:style => "margin-bottom: 15px;"}
+    = label :item, :tag_list, 'Tags'
+    = select :item, :tag_list, options_for_select(@tags), {}, {:multiple => true, :class => 'form-control'}
+
+
   = submit_tag 'Add Item', :class => 'btn btn-primary'
