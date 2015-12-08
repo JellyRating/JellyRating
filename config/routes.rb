@@ -10,6 +10,7 @@ JellyRating::Application.routes.draw do
   resources :items do
     collection do
       get :list_all
+      post :list_all
     end
     resources :avaliations
     resources :commentaries

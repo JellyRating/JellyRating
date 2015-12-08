@@ -27,8 +27,19 @@ class ItemsController < ApplicationController
   end
 
   def list_all
-    @item = Item.all
-  end    
+    @item = search(params[:search])
+  end
+
+  def search(s_params)
+    s_params = s_params.strip if s_params
+    if(s_params && !s_params.empty?)
+      by_name = Item.where("title LIKE ?", "%#{s_params}%")
+      by_tags = Item.tagged_with(s_params)
+      by_name.union(by_tags).order(:title)
+    else
+      Item.all.order(:title)
+    end
+  end
 
   private
     def item_params

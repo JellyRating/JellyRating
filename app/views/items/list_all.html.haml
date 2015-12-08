@@ -1,4 +1,11 @@
-%h1 List of all Items
+%h1 List of all 
+
+= form_tag :method => 'get' do 
+  = label :user, :name, 'Filter'
+  = text_field_tag :search, params[:search], :class => 'input-sm form-control'
+
+  = submit_tag 'Find', :style => "margin-bottom: 15px;", :class => 'btn btn-primary btn-whitelink'
+
 %ul.list-group
   %li.list-group-item.disabled
     .row
