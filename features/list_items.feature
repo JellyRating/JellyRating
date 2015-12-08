@@ -18,3 +18,11 @@ Scenario: list all items
   And I should see "The Terminator"
   And I should see "When Harry Met Sally"
   And I should see "The Help"
+
+Scenario: search items by title
+  When I follow "Items"
+  And I fill in "search" with "in"
+  And I press "Find"
+  Then I should see "Aladdin"
+  And I should see "The Terminator"
+  And I should not see "The Help"
