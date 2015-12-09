@@ -8,10 +8,10 @@
       %b Email:
       = @user.email
 
-    = link_to 'Followers: '+@user.followers.length.to_s, user_followers_path(@user.id)
+    %b= link_to 'Followers: '+@user.followers.length.to_s, user_followers_path(@user.id)
     %br
     %br
-    = link_to 'Following: '+@user.followed.length.to_s, user_following_path(@user.id)
+    %b= link_to 'Following: '+@user.followed.length.to_s, user_following_path(@user.id)
     %br
     %br
 
