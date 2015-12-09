@@ -22,7 +22,7 @@
       - if (@relationship = current_user.followship(@user)) == nil
         = link_to 'Follow', relationships_path(:followed=>@user), :class => "btn btn-primary btn-whitelink btn-block"
       - else 
-        = link_to 'Unfollow', relationship_path(@relationship), :class => "btn btn-primary btn-whitelink btn-block", :method=>:delete
+        = link_to 'Unfollow', relationship_path(@relationship), :class => "btn btn-primary btn-danger btn-block", :method=>:delete
 
     - if current_user.admin?
       = link_to 'Delete', user_path(@user), :method => :delete, data: {confirm: "You sure?"}
