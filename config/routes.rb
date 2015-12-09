@@ -3,6 +3,7 @@ JellyRating::Application.routes.draw do
   resources :recommendations
   resources :avaliations
   resources :users
+  resources :relationships
   resources :recommendations do
     resources :avaliations
     resources :commentaries

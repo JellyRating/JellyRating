@@ -27,5 +27,19 @@ RSpec.describe User, type: :model do
       end
     end
   end
-  
+
+  describe 'following another User'
+    it 'should create a Relationship between the two Users'
+        
+  end
+
+  describe 'list followers'
+    it 'return a list of followers'
+      
+  end
+
+  describe 'list followed' 
+    it 'return a list of followed'
+      
+  end
 end

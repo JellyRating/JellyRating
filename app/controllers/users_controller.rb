@@ -54,6 +54,18 @@ class UsersController < ApplicationController
     end
   end  
 
+  helper_method :follows?
+  def follows? (user_id)
+    @follower = User.find_by_id @current_user
+    @followed = User.find_by_id user_id
+    @relationship = Relationship.where(follower: @follower, followed: @followed)
+    if @relationship.length==0    
+      return -1
+    else return @relationship[0].id
+    end
+  end
+
+
   private
     def user_params
       params.require(:user).permit(:name, :email,
