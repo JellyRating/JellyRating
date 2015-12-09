@@ -13,14 +13,14 @@ class RelationshipsController < ApplicationController
 			@relationship = Relationship.create(follower: @follower, 
 				followed: @followed)
 		end
-		redirect_to user_path params[:followed]
+		redirect_to (:back)
 	end
 
 	def destroy
 		@relationship = Relationship.find_by_id(params[:id])
 		@followed = @relationship.followed.id
 		@relationship.destroy
-		redirect_to user_path @followed
+		redirect_to (:back)
 	end
 
 

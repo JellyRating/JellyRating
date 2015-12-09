@@ -1,11 +1,11 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/saasbook/JellyRating/app/helpers/home_helper.rb": [
+      "/home/saasbook/Desktop/JellyRating/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/JellyRating/app/helpers/sessions_helper.rb": [
+      "/home/saasbook/Desktop/JellyRating/app/helpers/sessions_helper.rb": [
         1,
         null,
         1,
@@ -46,24 +46,24 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        null,
-        null
-      ],
-      "/home/saasbook/JellyRating/app/controllers/home_controller.rb": [
-        1,
-        1,
-        1,
-        0,
         0,
         0,
         0,
         null,
         null
       ],
-      "/home/saasbook/JellyRating/app/controllers/application_controller.rb": [
+      "/home/saasbook/Desktop/JellyRating/app/controllers/home_controller.rb": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/home/saasbook/Desktop/JellyRating/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -83,7 +83,7 @@
         null,
         null
       ],
-      "/home/saasbook/JellyRating/app/controllers/users_controller.rb": [
+      "/home/saasbook/Desktop/JellyRating/app/controllers/users_controller.rb": [
         1,
         1,
         1,
@@ -143,58 +143,33 @@
         1,
         1,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        0,
         null,
         null,
         null,
         1,
         0,
-        0,
-        null,
-        null
-      ],
-      "/home/saasbook/JellyRating/app/models/avaliation.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
         0,
         null,
         null
       ],
-      "/home/saasbook/JellyRating/app/models/item.rb": [
-        1,
-        1,
-        1,
-        1,
-        null,
+      "/home/saasbook/Desktop/JellyRating/app/models/avaliation.rb": [
         1,
         1,
         1,
         1,
         1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
         null,
         null,
         1,
@@ -206,7 +181,48 @@
         null,
         null
       ],
-      "/home/saasbook/JellyRating/app/models/recommendation.rb": [
+      "/home/saasbook/Desktop/JellyRating/app/models/item.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/saasbook/Desktop/JellyRating/app/models/recommendation.rb": [
         1,
         1,
         1,
@@ -214,6 +230,10 @@
         1,
         1,
         1,
+        null,
+        1,
+        0,
+        null,
         null,
         1,
         0,
@@ -243,6 +263,6 @@
         null
       ]
     },
-    "timestamp": 1449616879
+    "timestamp": 1449692445
   }
 }
