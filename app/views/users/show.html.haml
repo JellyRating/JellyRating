@@ -1,57 +1,57 @@
 %h1 #{@user.name} profile
+.row
+  .col-sm-3
+    %p
+      %b Name:
+      = @user.name
+    %p
+      %b Email:
+      = @user.email
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-
-- @followers = @user.followers
-- @followed = @user.followed
-
-
-- if current_user?(@user)
-  = link_to 'Edit your profile', edit_user_path(current_user)
-
-- if not current_user?(@user)
-  - if (@relationship = follows?(@user)) == -1
-    = link_to 'Follow', relationships_path(:followed=>@user)
-  - else 
-    = link_to 'Unfollow', relationship_path(@relationship), :method=>:delete
+    - @followers = @user.followers
+    - @followed = @user.followed
 
 
-- if current_user.admin?
-  = link_to 'Delete', user_path(@user), :method => :delete, data: {confirm: "You sure?"}
+    - if current_user?(@user)
+      = link_to 'Edit your profile', edit_user_path(current_user), :class => "btn btn-primary btn-whitelink"
 
-- if !@user.recommendations.empty?
-  %h3 Recommendations:
-  .list-group
-    - @user.recommendations.recent.each do |recommendation|
-      .list-group-item
-        %span.text-muted Created
-        %strong
-          = link_to(recommendation.title, recommendation_path(recommendation))
-        %span.text-muted #{time_ago_in_words(recommendation.created_at)} ago
+    - if not current_user?(@user)
+      - if (@relationship = follows?(@user)) == -1
+        = link_to 'Follow', relationships_path(:followed=>@user), :class => "btn btn-primary btn-whitelink btn-block"
+      - else 
+        = link_to 'Unfollow', relationship_path(@relationship), :class => "btn btn-primary btn-whitelink btn-block", :method=>:delete
 
-- if !@user.avaliations.empty?
-  %h3 Avaliations:
-  .list-group
-    - @user.avaliations.recent.each do |avaliation|
-      %div{:class => "list-group-item #{avaliation.rating ? 'list-group-item-like' : 'list-group-item-dislike'}"}
-        %span.text-muted #{avaliation.rating2string}
-        %strong
-          = link_to(avaliation.rateable.title, item_path(avaliation.rateable))
-        %span.text-muted #{time_ago_in_words(avaliation.updated_at)} ago
-- if !@user.commentaries.empty?
-  %h3 Commentaries
-  - @user.commentaries.recent.each do |commentary|
-    .panel.panel-default
-      .panel-heading
-        %span.text-muted #{commentary.user.name} commented about          
-        = link_to(commentary.commentable.title, item_path(commentary.commentable))
-        %span.text-muted #{time_ago_in_words(commentary.created_at)} ago
-      .panel-body
-        - commentary.comment.split("\n").each do |line|
-          = line
-          %br
+    - if current_user.admin?
+      = link_to 'Delete', user_path(@user), :method => :delete, data: {confirm: "You sure?"}
+  .col-sm-9.mycontent-right
+    - if !@user.recommendations.empty?
+      %h3 Recommendations:
+      .list-group
+        - @user.recommendations.recent.each do |recommendation|
+          .list-group-item
+            %span.text-muted Created
+            %strong
+              = link_to(recommendation.title, recommendation_path(recommendation))
+            %span.text-muted #{time_ago_in_words(recommendation.created_at)} ago
+
+    - if !@user.avaliations.empty?
+      %h3 Avaliations:
+      .list-group
+        - @user.avaliations.recent.each do |avaliation|
+          %div{:class => "list-group-item #{avaliation.rating ? 'list-group-item-like' : 'list-group-item-dislike'}"}
+            %span.text-muted #{avaliation.rating2string}
+            %strong
+              = link_to(avaliation.rateable.title, item_path(avaliation.rateable))
+            %span.text-muted #{time_ago_in_words(avaliation.updated_at)} ago
+    - if !@user.commentaries.empty?
+      %h3 Commentaries
+      - @user.commentaries.recent.each do |commentary|
+        .panel.panel-default
+          .panel-heading
+            %span.text-muted #{commentary.user.name} commented about          
+            = link_to(commentary.commentable.title, item_path(commentary.commentable))
+            %span.text-muted #{time_ago_in_words(commentary.created_at)} ago
+          .panel-body
+            - commentary.comment.split("\n").each do |line|
+              = line
+              %br

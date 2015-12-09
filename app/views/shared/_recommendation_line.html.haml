@@ -1,16 +1,13 @@
 %li.list-group-item
   .row
-    - like_count = recommendation.like_count
-    - dislike_count = recommendation.dislike_count
-    - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
     .col-sm-4
       = link_to(recommendation.title, recommendation_path(recommendation))
     .col-sm-3
       .progress{:class => "progress_recommendation_#{recommendation.id}", :style => "margin-bottom: 0px;"}
-        %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
-          = like_count
-        %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
-          = dislike_count
+        %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{recommendation.like_ratio}%"}
+          = recommendation.like_count
+        %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - recommendation.like_ratio}%"}
+          = recommendation.dislike_count
     - if logged_in?
       .col-sm-3    
         = link_to recommendation_avaliations_path(recommendation, :rating => true),  method: :post, :id => "recommendation_#{recommendation.id}", :class => 'btn btn-xs btn-success btn-whitelink', :remote => true do

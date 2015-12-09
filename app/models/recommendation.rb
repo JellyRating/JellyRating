@@ -18,13 +18,17 @@ class Recommendation < ActiveRecord::Base
     self.avaliations.where("avaliations.rating = ?", false).size
   end
 
+  def like_ratio
+    100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
+  end
+
   #scopes
   def self.recent
     order('created_at desc')
   end
 
   def self.top_rated
-    all.sort{|a,b| b.like_count <=> a.like_count}
+    all.sort{|a,b| b.like_ratio <=> a.like_ratio}
   end  
 
   private

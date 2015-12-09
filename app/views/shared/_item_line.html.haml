@@ -1,18 +1,15 @@
 %li.list-group-item
   .row
-    - like_count = item.like_count
-    - dislike_count = item.dislike_count
-    - like_bar = 100 * like_count/(like_count + dislike_count == 0 ? 1 : like_count + dislike_count)
     .col-sm-2
       = link_to(item.title, item_path(item))
     .col-sm-2
       = item.release_date.year
     .col-sm-3
       .progress{:class => "progress_item_#{item.id}", :style => "margin-bottom: 0px;"}
-        %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{like_bar}%"}
-          = like_count
-        %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - like_bar}%"}
-          = dislike_count
+        %div{:class => "progress-bar progress-bar-success", :role => "progressbar", :style => "width:#{item.like_ratio}%"}
+          = item.like_count
+        %div{:class => "progress-bar progress-bar-danger", :role => "progressbar", :style => "width:#{100 - item.like_ratio}%"}
+          = item.dislike_count
     - if logged_in?
       .col-sm-3
         = link_to item_avaliations_path(item, :rating => true),  method: :post, :class => 'btn btn-xs btn-success btn-whitelink', :remote => true, :id => "item_#{item.id}" do
