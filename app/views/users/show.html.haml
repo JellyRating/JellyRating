@@ -19,7 +19,7 @@
       = link_to 'Edit your profile', edit_user_path(current_user), :class => "btn btn-primary btn-whitelink"
 
     - if not current_user?(@user)
-      - if (@relationship = follows?(@user)) == -1
+      - if (@relationship = current_user.followship(@user)) == nil
         = link_to 'Follow', relationships_path(:followed=>@user), :class => "btn btn-primary btn-whitelink btn-block"
       - else 
         = link_to 'Unfollow', relationship_path(@relationship), :class => "btn btn-primary btn-whitelink btn-block", :method=>:delete
