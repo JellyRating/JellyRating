@@ -8,8 +8,8 @@
       %b Email:
       = @user.email
 
-    - @followers = @user.followers
-    - @followed = @user.followed
+    @followers = @user.followers
+    @followed = @user.followed
 
 
     - if current_user?(@user)
