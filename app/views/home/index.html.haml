@@ -1,43 +1,47 @@
-%h1 Jelly Rating
+%h1
+  Jelly Rating
+  - if logged_in?
+    %a{"data-toggle" => "collapse", href: "#top"}
+      %span.text-muted(class="glyphicon glyphicon-home")
+%div{:class => "#{logged_in? ? 'collapse' : ''}", :id => "top"}
+  %h3 Top rated
+  %ul.list-group
+    %li.list-group-item.disabled
+      .row
+        .col-sm-2 Title
+        .col-sm-2 Release Date
+        .col-sm-3 Avaliations
+    - @top_items.each do |item|
+      = render :partial => 'shared/item_line', locals: {item: item}
 
-%h3 Top rated
-%ul.list-group
-  %li.list-group-item.disabled
-    .row
-      .col-sm-2 Title
-      .col-sm-2 Release Date
-      .col-sm-3 Avaliations
-  - @top_items.each do |item|
-    = render :partial => 'shared/item_line', locals: {item: item}
+  %h3 Top recommendations
+  %ul.list-group
+    %li.list-group-item.disabled
+      .row
+        .col-sm-2 Recommendation
+        .col-sm-2 
+        .col-sm-3 Avaliations
+    - @top_recommendations.each do |recommendation|
+      = render :partial => 'shared/recommendation_line', locals: {recommendation: recommendation} 
 
-%h3 Top recommendations
-%ul.list-group
-  %li.list-group-item.disabled
-    .row
-      .col-sm-2 Recommendation
-      .col-sm-2 
-      .col-sm-3 Avaliations
-  - @top_recommendations.each do |recommendation|
-    = render :partial => 'shared/recommendation_line', locals: {recommendation: recommendation} 
+  %h3 Recent additions
+  %ul.list-group
+    %li.list-group-item.disabled
+      .row
+        .col-sm-2 Title
+        .col-sm-2 Release Date
+        .col-sm-3 Avaliations
+    - @recent_items.each do |item|
+      = render :partial => 'shared/item_line', locals: {item: item}
 
-%h3 Recent additions
-%ul.list-group
-  %li.list-group-item.disabled
-    .row
-      .col-sm-2 Title
-      .col-sm-2 Release Date
-      .col-sm-3 Avaliations
-  - @recent_items.each do |item|
-    = render :partial => 'shared/item_line', locals: {item: item}
+  %h3 Recent recommendations
+  %ul.list-group
+    %li.list-group-item.disabled
+      .row
+        .col-sm-4 Recommendation
+        .col-sm-3 Avaliations
+    - @recent_recommendations.each do |recommendation|
+      = render :partial => 'shared/recommendation_line', locals: {recommendation: recommendation}
 
-%h3 Recent recommendations
-%ul.list-group
-  %li.list-group-item.disabled
-    .row
-      .col-sm-4 Recommendation
-      .col-sm-3 Avaliations
-  - @recent_recommendations.each do |recommendation|
-    = render :partial => 'shared/recommendation_line', locals: {recommendation: recommendation}
-
-
-/ = render :partial => 'timeline'
+- if logged_in?
+  = render :partial => 'timeline'

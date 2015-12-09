@@ -1,9 +1,34 @@
-- current_user.relationships.followed_avaliations.each do |a|
-  %div{:class => "list-group-item #{avaliation.rating ? 'list-group-item-like' : 'list-group-item-dislike'}"}
-    %span.text-muted #{avaliation.rating2string}
-    %strong
-      = link_to(avaliation.rateable.title, item_path(avaliation.rateable))
-    %span.text-muted #{time_ago_in_words(avaliation.updated_at)} ago
+- current_user.timeline.each do |var|
+  .panel.panel-default{:style => "margin-bottom: 5px"}
+    - if var.class == Avaliation
+      %div{:class => "list-group-item #{var.rating ? 'list-group-item-like' : 'list-group-item-dislike'}"}
+        %strong
+          = link_to var.user.name, user_path(var.user)
+        %span.text-muted #{var.rating2string}
+        %strong
+          = link_to(var.rateable.title, item_path(var.rateable))
+        %span.text-muted #{time_ago_in_words(var.updated_at)} ago
 
-- current_user.relationships.each do |re|
-  = re
+    - if var.class == Recommendation
+      .list-group-item
+        %strong
+          = link_to var.created_by.name, user_path(var.created_by)
+        %span.text-muted Created
+        %strong
+          = link_to(var.title, recommendation_path(var))
+        %span.text-muted #{time_ago_in_words(var.created_at)} ago
+
+    - if var.class == Commentary    
+      .panel-heading
+        %strong
+          = link_to var.user.name, user_path(var.user)
+        %span.text-muted commented about          
+        = link_to(var.commentable.title, item_path(var.commentable))
+        %span.text-muted #{time_ago_in_words(var.created_at)} ago
+      .panel-body
+        - var.comment.split("\n").each do |line|
+          = line
+          %br
+
+/ - current_user.followings.each do |re|
+/   = re.followed.name
