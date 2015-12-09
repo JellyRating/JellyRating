@@ -77,30 +77,30 @@ class User < ActiveRecord::Base
   end
 
   def followed_avaliations
-    Avaliation.where(:user_id => followings)
+    Avaliation.where(:user_id => followed)
   end
 
   def followed_recommendations
-    Recommendation.where(:created_by_id => followings)
+    Recommendation.where(:created_by_id => followed)
   end
 
   def followed_commentaries
-    Commentary.where(:user_id => followings)
+    Commentary.where(:user_id => followed)
   end
 
   def timeline
     timeline_list = Array.new
-    followed_avaliations.recent.each do |avaliation|
+    followed_avaliations.each do |avaliation|
       timeline_list << avaliation
     end
 
-    followed_recommendations.recent.each do |recommendation|
+    followed_recommendations.each do |recommendation|
       timeline_list  << recommendation
     end
 
-    followed_commentaries.recent.each do |commentary|
+    followed_commentaries.each do |commentary|
       timeline_list  << commentary
     end
-    timeline_list.sort {|x,y| x.updated_at <=> y.updated_at}
+    timeline_list.sort {|x,y| y.updated_at <=> x.updated_at}
   end  
 end
