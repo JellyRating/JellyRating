@@ -1,0 +1,19 @@
+%h1 Following
+
+
+%ul.list-group
+  %li.list-group-item.disabled
+    .row
+      .col-sm-2 Name
+      .col-sm-2 Avaliations
+      .col-sm-3 Recommendations
+  - @user.followed.each do |user|
+    %li.list-group-item
+      .row
+        .col-sm-2
+          = link_to(user.name, user_path(user))
+        .col-sm-2
+          = user.avaliations.length
+        .col-sm-3
+          = user.recommendations.length
+

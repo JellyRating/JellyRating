@@ -16,6 +16,10 @@ JellyRating::Application.routes.draw do
     resources :avaliations
     resources :commentaries
   end
+  resources :users do
+    get :followers
+    get :following
+  end
   root :to => 'home#index'
 	get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
