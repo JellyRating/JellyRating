@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
   has_many :recommendations, class_name: "Recommendation", foreign_key: "created_by_id"
   has_many :commentaries
   has_many :relationships
-  has_many :followers, class_name: "User", :through=>:relationships
-  has_many :followeds, class_name: "User", :through=>:relationships
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -54,7 +52,23 @@ class User < ActiveRecord::Base
     Commentary.where(:user_id => self.id).count
   end
 
-  def follow (user)
-    
+  def followers
+    @followers= Array.new
+    @relationships = Relationship.where(:followed_id =>self.id)
+    @relationships.each do |r|
+      @followers.push r.follower
+    end
+    return @followers
   end
+
+  def followed
+    @followed= Array.new
+    @relationships = Relationship.where(:follower_id =>self.id)
+    @relationships.each do |r|
+      @followed.push r.followed
+    end
+    return @followed
+  end
+
+
 end

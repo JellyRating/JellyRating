@@ -7,6 +7,10 @@
   %b Email:
   = @user.email
 
+- @followers = @user.followers
+- @followed = @user.followed
+
+
 - if current_user?(@user)
   = link_to 'Edit your profile', edit_user_path(current_user)
 
