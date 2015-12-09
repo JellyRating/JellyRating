@@ -18,7 +18,7 @@
       .col-sm-2 
       .col-sm-3 Avaliations
   - @top_recommendations.each do |recommendation|
-    = render :partial => 'shared/recommendation_line', locals: {recommendation: recommendation}
+    = render :partial => 'shared/recommendation_line', locals: {recommendation: recommendation} 
 
 %h3 Recent additions
 %ul.list-group
@@ -38,3 +38,6 @@
       .col-sm-3 Avaliations
   - @recent_recommendations.each do |recommendation|
     = render :partial => 'shared/recommendation_line', locals: {recommendation: recommendation}
+
+
+/ = render :partial => 'timeline'

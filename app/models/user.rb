@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
     Commentary.where(:user_id => self.id).count
   end
 
+  def followed_recommendations
+    Relationship.joins(:recommendations).where(recommendations: {created_by_id: followed_id})
+  end
+
   def followers
     @followers= Array.new
     @relationships = Relationship.where(:followed_id =>self.id)

@@ -1,0 +1,9 @@
+- current_user.relationships.followed_avaliations.each do |a|
+  %div{:class => "list-group-item #{avaliation.rating ? 'list-group-item-like' : 'list-group-item-dislike'}"}
+    %span.text-muted #{avaliation.rating2string}
+    %strong
+      = link_to(avaliation.rateable.title, item_path(avaliation.rateable))
+    %span.text-muted #{time_ago_in_words(avaliation.updated_at)} ago
+
+- current_user.relationships.each do |re|
+  = re
