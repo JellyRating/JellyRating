@@ -67,5 +67,14 @@ class User < ActiveRecord::Base
     return @relationships
   end
 
+  def followship(user)
+    @relationship = Relationship.where(:follower=>self, :followed=>user).first
+  end
+
+  def follows? (user)
+    @relationship = Relationship.where(follower: self, followed: user)
+    return @relationship.length!=0        
+  end
+
 
 end
